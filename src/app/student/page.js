@@ -13,7 +13,7 @@ export default function Student() {
     <CssVarsProvider disableTransitionOnChange>
       <CssBaseline />
       <Box sx={{ display: 'flex', minHeight: '100dvh' }}>
-        {/* <Sidebar /> */}
+        <Sidebar />
         <Header />
         <Box component="main" className="MainContent" sx={{ flex: 1 }}>
           <MyMessages />
