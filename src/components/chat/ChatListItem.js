@@ -7,7 +7,6 @@ import Stack from '@mui/joy/Stack';
 import Typography from '@mui/joy/Typography';
 import CircleIcon from '@mui/icons-material/Circle';
 import AvatarWithStatus from './AvatarWithStatus';
-import { ChatProps, MessageProps, UserProps } from '../../../../material-ui/docs/data/joy/getting-started/templates/messages/types';
 import { toggleMessagesPane } from '../../../../material-ui/docs/data/joy/getting-started/templates/messages/utils';
 
 export default function ChatListItem(props) {
