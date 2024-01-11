@@ -38,7 +38,7 @@ export default function MessagesPaneHeader(props) {
         >
           <ArrowBackIosNewRoundedIcon />
         </IconButton>
-        <Avatar size="lg" src={sender.avatar} />
+        <Avatar size="lg" src={'/images/llama.png'} />
         <div>
           <Typography
             fontWeight="lg"
@@ -64,9 +64,9 @@ export default function MessagesPaneHeader(props) {
               ) : undefined
             }
           >
-            {sender.name}
+            Chatur
           </Typography>
-          <Typography level="body-sm">{sender.username}</Typography>
+          <Typography level="body-sm">AI Bot</Typography>
         </div>
       </Stack>
       <Stack spacing={1} direction="row" alignItems="center">

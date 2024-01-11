@@ -93,10 +93,8 @@ export default function Sidebar() {
         onClick={() => closeSidebar()}
       />
       <Box sx={{ display: 'flex', gap: 1, alignItems: 'center' }}>
-        {/* <IconButton variant="soft" color="primary" size="sm">
-          <BrightnessAutoRoundedIcon />
-        </IconButton> */}
-        <Typography level="h2">Chatur</Typography>
+          <Avatar src='/images/llama.png'/>
+        <Typography level="title-lg">Chatur</Typography>
         <ColorSchemeToggle sx={{ ml: 'auto' }} />
       </Box>
       {/* <Input size="sm" startDecorator={<SearchRoundedIcon />} placeholder="Search" /> */}
