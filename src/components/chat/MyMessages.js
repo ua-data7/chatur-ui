@@ -3,10 +3,12 @@ import Sheet from '@mui/joy/Sheet';
 
 import MessagesPane from './MessagesPane';
 import ChatsPane from './ChatsPane';
+import HistoryPane from './HistoryPane.js';
 import { chats } from '../../data';
+import { histories } from '../../data'
 
 export default function MyProfile() {
-  const [selectedChat, setSelectedChat] = React.useState(chats[0]);
+  const [selectedHistory, setSelectedHistory] = React.useState(chats[0]);
   return (
     <Sheet
       sx={{
@@ -34,13 +36,13 @@ export default function MyProfile() {
           top: 52,
         }}
       >
-        <ChatsPane
-          chats={chats}
-          selectedChatId={selectedChat.id}
-          setSelectedChat={setSelectedChat}
+        <HistoryPane
+          histories={histories}
+          selectedChatId={selectedHistory.id}
+          setSelectedChat={setSelectedHistory}
         />
       </Sheet>
-      <MessagesPane chat={selectedChat} />
+      <MessagesPane chat={selectedHistory} />
     </Sheet>
   );
 }

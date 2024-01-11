@@ -268,3 +268,86 @@ export const chats = [
     ],
   },
 ];
+
+export const histories = [
+  {
+    id: '1',
+    summary: 'Module 1',
+    messages: [
+      {
+        id: '1',
+        content:
+          'Why is the sky blue?',
+        timestamp: 'Wednesday 9:00am',
+        sender: 'Chatur',
+      },
+      {
+        id: '2',
+        content:
+          'That sounds interesting! What kind of improvements are you considering?',
+        timestamp: 'Wednesday 9:05am',
+        sender: 'You',
+      },
+      {
+        id: '3',
+        content: 'I am planning to repaint the walls and replace the old furniture.',
+        timestamp: 'Wednesday 9:15am',
+        sender: 'Chatur',
+      },
+      {
+        id: '4',
+        content:
+          'That will definitely give your house a fresh look. Do you need help with anything?',
+        timestamp: 'Wednesday 9:20am',
+        sender: 'You',
+      },
+      {
+        id: '5',
+        content:
+          'I might need some help with picking the right paint colors. Can we discuss this over the weekend?',
+        timestamp: 'Wednesday 9:30am',
+        sender: 'Chatur',
+      },
+    ],
+  },
+  {
+    id: '1',
+    summary: 'Module 2',
+    messages: [
+      {
+        id: '1',
+        content:
+          'Why is the sky blue?',
+        timestamp: 'Wednesday 9:00am',
+        sender: 'Chatur',
+      },
+      {
+        id: '2',
+        content:
+          'That sounds interesting! What kind of improvements are you considering?',
+        timestamp: 'Wednesday 9:05am',
+        sender: 'You',
+      },
+      {
+        id: '3',
+        content: 'I am planning to repaint the walls and replace the old furniture.',
+        timestamp: 'Wednesday 9:15am',
+        sender: 'Chatur',
+      },
+      {
+        id: '4',
+        content:
+          'That will definitely give your house a fresh look. Do you need help with anything?',
+        timestamp: 'Wednesday 9:20am',
+        sender: 'You',
+      },
+      {
+        id: '5',
+        content:
+          'I might need some help with picking the right paint colors. Can we discuss this over the weekend?',
+        timestamp: 'Wednesday 9:30am',
+        sender: 'Chatur',
+      },
+    ],
+  },
+]
