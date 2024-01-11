@@ -9,7 +9,7 @@ import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import ChatListItem from './ChatListItem';
 import { ChatProps } from '../../../../material-ui/docs/data/joy/getting-started/templates/messages/types';
-import { toggleMessagesPane } from '../../../../material-ui/docs/data/joy/getting-started/templates/messages/utils';
+import { toggleMessagesPane } from '../../utils';
 
 export default function ChatsPane(props) {
   const { chats, setSelectedChat, selectedChatId } = props;

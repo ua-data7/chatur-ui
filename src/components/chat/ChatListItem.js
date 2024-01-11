@@ -7,7 +7,7 @@ import Stack from '@mui/joy/Stack';
 import Typography from '@mui/joy/Typography';
 import CircleIcon from '@mui/icons-material/Circle';
 import AvatarWithStatus from './AvatarWithStatus';
-import { toggleMessagesPane } from '../../../../material-ui/docs/data/joy/getting-started/templates/messages/utils';
+import { toggleMessagesPane } from '../../utils';
 
 export default function ChatListItem(props) {
   const { id, sender, messages, selectedChatId, setSelectedChat } = props;

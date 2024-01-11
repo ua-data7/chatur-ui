@@ -31,7 +31,7 @@ import BrightnessAutoRoundedIcon from '@mui/icons-material/BrightnessAutoRounded
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 import ColorSchemeToggle from './ColorSchemeToggle';
-import { closeSidebar } from '../../../../material-ui/docs/data/joy/getting-started/templates/messages/utils';
+import { closeSidebar } from '../../utils';
 
 function Toggler(props) {
   const { defaultExpanded = false, renderToggle, children } = props;

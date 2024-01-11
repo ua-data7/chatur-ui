@@ -10,7 +10,7 @@ import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRound
 import PhoneInTalkRoundedIcon from '@mui/icons-material/PhoneInTalkRounded';
 import MoreVertRoundedIcon from '@mui/icons-material/MoreVertRounded';
 import { UserProps } from '../../../../material-ui/docs/data/joy/getting-started/templates/messages/types';
-import { toggleMessagesPane } from '../../../../material-ui/docs/data/joy/getting-started/templates/messages/utils';
+import { toggleMessagesPane } from '../../utils';
 
 
 export default function MessagesPaneHeader(props) {
