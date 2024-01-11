@@ -2,10 +2,10 @@
 
 import Button from '@mui/joy/Button';
 
-export default function Home() {
+export default function Instructor() {
   return (
     <main>
-      <Button variant="soft">Hello world</Button>
+      <Button variant="soft">Instructor</Button>
     </main>
   )
 }
