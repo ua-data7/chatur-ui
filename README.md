@@ -41,3 +41,11 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+## Testing with Ollama
+
+Testing is being carried out using the [phi language model](https://ollama.ai/library/phi) with [Ollama](https://ollama.ai/). Here are the steps necessary to install Ollama and Phi:
+
+1. Download, unzip and install Ollama on your computer.
+2. Once installed, open your terminal and execute `ollama run phi` -- this is going to download the phi model.
+3. Run the model with `ollama serve`. You should be able to access the service at `127.0.0.1:11434`.
