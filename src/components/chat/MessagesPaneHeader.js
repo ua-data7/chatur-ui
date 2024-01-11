@@ -38,7 +38,7 @@ export default function MessagesPaneHeader(props) {
         >
           <ArrowBackIosNewRoundedIcon />
         </IconButton>
-        <Avatar size="lg" src={sender.avatar} />
+        <Avatar size="lg" src={'/images/llama.png'} />
         <div>
           <Typography
             fontWeight="lg"

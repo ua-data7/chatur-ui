@@ -1,44 +1,44 @@
 export const users = [
   {
-    name: 'Chatur',
+    name: 'RNR 355',
     username: '@chatur',
-    avatar: '/static/images/avatar/2.jpg',
+    avatar: '/images/llama.png',
     online: true,
   },
   {
-    name: 'Chatur',
+    name: 'RNR 355',
     username: '@chatur',
-    avatar: '/static/images/avatar/3.jpg',
+    avatar: '/images/llama.png',
     online: false,
   },
   {
-    name: 'Phoenix Baker',
-    username: '@phoenix',
-    avatar: '/static/images/avatar/1.jpg',
+    name: 'RNR 355',
+    username: '@chatur',
+    avatar: '/images/llama.png',
     online: true,
   },
   {
-    name: 'Eleanor Pena',
-    username: '@eleanor',
-    avatar: '/static/images/avatar/4.jpg',
+    name: 'RNR 355',
+    username: '@chatur',
+    avatar: '/images/llama.png',
     online: false,
   },
   {
-    name: 'Kenny Peterson',
-    username: '@kenny',
-    avatar: '/static/images/avatar/5.jpg',
+    name: 'CSC 335',
+    username: '@chatur',
+    avatar: '/images/llama.png',
     online: true,
   },
   {
-    name: 'Al Sanders',
-    username: '@al',
-    avatar: '/static/images/avatar/6.jpg',
+    name: 'RNR 355',
+    username: '@chatur',
+    avatar: '/images/llama.png',
     online: true,
   },
   {
-    name: 'Melissa Van Der Berg',
-    username: '@melissa',
-    avatar: '/static/images/avatar/7.jpg',
+    name: 'RNR 355',
+    username: '@chatur',
+    avatar: '/images/llama.png',
     online: false,
   },
 ];
@@ -50,13 +50,13 @@ export const chats = [
     messages: [
       {
         id: '1',
-        content: 'Hi Olivia, I am currently working on the project.',
+        content: 'Glad I was able to help!',
         timestamp: 'Wednesday 9:00am',
         sender: users[0],
       },
       {
         id: '2',
-        content: 'That sounds great, Mabel! Keep up the good work.',
+        content: 'Hopefully that helps a bit.',
         timestamp: 'Wednesday 9:10am',
         sender: 'You',
       },
@@ -96,7 +96,7 @@ export const chats = [
         id: '3',
         timestamp: 'Thursday 11:40am',
         sender: users[0],
-        content: 'Tech requirements.pdf',
+        content: 'Exercise requirements.pdf',
         attachment: {
           fileName: 'Tech requirements.pdf',
           type: 'pdf',
@@ -135,7 +135,7 @@ export const chats = [
     messages: [
       {
         id: '1',
-        content: 'Hi Olivia, I am thinking about taking a vacation.',
+        content: 'As an AI, I cannot take a vacation.',
         timestamp: 'Wednesday 9:00am',
         sender: users[1],
       },

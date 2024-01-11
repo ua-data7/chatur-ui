@@ -93,7 +93,7 @@ export default function Sidebar() {
         onClick={() => closeSidebar()}
       />
       <Box sx={{ display: 'flex', gap: 1, alignItems: 'center' }}>
-          <Avatar color="primary">AI</Avatar>
+          <Avatar src='/images/llama.png'/>
         <Typography level="title-lg">Chatur</Typography>
         <ColorSchemeToggle sx={{ ml: 'auto' }} />
       </Box>
