@@ -1,9 +1,9 @@
-import Button from "@mui/joy/Button";
+import Layout from "../components/instructor/Layout";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 export default {
     title: "Instructor",
-    component: Button,
+    component: Layout,
     parameters: {
         // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
         layout: "centered",
@@ -12,16 +12,4 @@ export default {
     tags: ["autodocs"],
 };
 
-// More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const Primary = {
-    args: {
-        children: ["Instructor"],
-    },
-};
-
-export const Soft = {
-    args: {
-        children: ["Instructor"],
-        variant: "soft",
-    },
-};
+export const ManageFilesView = {};
