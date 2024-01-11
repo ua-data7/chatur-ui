@@ -8,7 +8,6 @@ import EditNoteRoundedIcon from '@mui/icons-material/EditNoteRounded';
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import ChatListItem from './ChatListItem';
-import { ChatProps } from '../../../../material-ui/docs/data/joy/getting-started/templates/messages/types';
 import { toggleMessagesPane } from '../../utils';
 
 export default function ChatsPane(props) {

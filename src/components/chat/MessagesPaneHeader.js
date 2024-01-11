@@ -9,7 +9,6 @@ import CircleIcon from '@mui/icons-material/Circle';
 import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRounded';
 import PhoneInTalkRoundedIcon from '@mui/icons-material/PhoneInTalkRounded';
 import MoreVertRoundedIcon from '@mui/icons-material/MoreVertRounded';
-import { UserProps } from '../../../../material-ui/docs/data/joy/getting-started/templates/messages/types';
 import { toggleMessagesPane } from '../../utils';
 
 

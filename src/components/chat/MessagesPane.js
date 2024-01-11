@@ -6,7 +6,6 @@ import AvatarWithStatus from './AvatarWithStatus';
 import ChatBubble from './ChatBubble';
 import MessageInput from './MessageInput';
 import MessagesPaneHeader from './MessagesPaneHeader';
-import { ChatProps, MessageProps } from '../../../../material-ui/docs/data/joy/getting-started/templates/messages/types';
 
 
 export default function MessagesPane(props) {

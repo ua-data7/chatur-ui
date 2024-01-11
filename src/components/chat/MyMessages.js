@@ -3,7 +3,6 @@ import Sheet from '@mui/joy/Sheet';
 
 import MessagesPane from './MessagesPane';
 import ChatsPane from './ChatsPane';
-import { ChatProps } from '../../../../material-ui/docs/data/joy/getting-started/templates/messages/types';
 import { chats } from '../../data';
 
 export default function MyProfile() {
