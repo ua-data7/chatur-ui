@@ -1,13 +1,13 @@
 export const users = [
   {
-    name: 'Steve E.',
-    username: '@steveEberger',
+    name: 'Chatur',
+    username: '@chatur',
     avatar: '/static/images/avatar/2.jpg',
     online: true,
   },
   {
-    name: 'Katherine Moss',
-    username: '@kathy',
+    name: 'Chatur',
+    username: '@chatur',
     avatar: '/static/images/avatar/3.jpg',
     online: false,
   },

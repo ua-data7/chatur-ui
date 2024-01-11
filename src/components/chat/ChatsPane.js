@@ -45,7 +45,7 @@ export default function ChatsPane(props) {
           }
           sx={{ mr: 'auto' }}
         >
-          Messages
+         Chat History
         </Typography>
         <IconButton
           variant="plain"
