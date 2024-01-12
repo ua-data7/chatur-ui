@@ -2,21 +2,16 @@ import Box from '@mui/joy/Box';
 import Button from '@mui/joy/Button';
 import FormControl from '@mui/joy/FormControl';
 import Textarea from '@mui/joy/Textarea';
-import { IconButton, Stack } from '@mui/joy';
+import { Stack } from '@mui/joy';
 import React, { useState } from 'react';
-
 import SendRoundedIcon from '@mui/icons-material/SendRounded';
 
 export default function MessageInput(props) {
-  const { textAreaValue, setTextAreaValue, onSubmit, appendMessage } = props;
+  const { textAreaValue, setTextAreaValue, appendMessage, setPendingChatbotMessage } = props;
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [apiResponse, setApiResponse] = useState('');
 
-  const handleClick = async () => {
-    
-    onSubmit();
-
+  const handleChatbotResponse = async () => {
     try {
       if (textAreaValue.trim() !== '') {
         setIsLoading(true);
@@ -45,19 +40,22 @@ export default function MessageInput(props) {
           throw new Error('Failed to send message');
         }
 
-        // Clear the text area after submitting
-        setTextAreaValue('');
-
         // Set the API response to display in the chat
         const responseBody = await response.json();
-        console.log(responseBody)
-        appendMessage(responseBody.choices[0].message.content); // Replace 'message' with the actual property in your API response
+        setPendingChatbotMessage(responseBody.choices[0].message.content);
       }
     } catch (error) {
       setError(error.message);
     } finally {
       setIsLoading(false);
     }
+  };
+
+  const handleClick = async () => {
+    appendMessage(textAreaValue, 'You');
+     // Clear the text area after submitting
+    setTextAreaValue('');
+    handleChatbotResponse();    
   };
 
   return (
@@ -109,13 +107,6 @@ export default function MessageInput(props) {
           }}
         />
       </FormControl>
-
-      {/* Display the API response in the chat */}
-      {apiResponse && (
-        <div>
-          <strong>Bot:</strong> {apiResponse}
-        </div>
-      )}
     </Box>
   );
 }

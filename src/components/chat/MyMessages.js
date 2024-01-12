@@ -14,24 +14,39 @@ export default function MyProfile() {
   };
 
   const [selectedChat, setSelectedChat] = React.useState(initialChat);
+  const [studentMessageAppended, setStudentMessageAppended] = React.useState(false);
+  const [pendingChatbotMessage, setPendingChatbotMessage] = React.useState(null);
 
-  function appendMessage(messageString) {
+  function appendMessage(messageString, sender) {
 
-    const newMessage = {
-      sender: users[0],
-      message: messageString,
-      timestamp: Date.now()
-    }
-
-    if (selectedChat && Array.isArray(selectedChat.messages)) {
-        setSelectedChat(prevChat => ({
-            ...prevChat,
-            messages: [...prevChat.messages, newMessage]
-        }));
-    } else {
-        console.error("Invalid chat selection or messages not an array");
-    }
+      if (sender === 'You') {
+        setStudentMessageAppended(true);
+      }
+    
+      const newMessage = {
+        sender: sender,
+        message: messageString,
+        timestamp: Date.now()
+      }
+  
+      if (selectedChat && Array.isArray(selectedChat.messages)) {
+          return setSelectedChat({
+              ...selectedChat,
+              messages: [...selectedChat.messages, newMessage]
+          });
+      } else {
+          console.error("Invalid chat selection or messages not an array");
+      }
   };
+
+  React.useEffect(() => {
+
+    if (studentMessageAppended && pendingChatbotMessage) {
+      appendMessage(pendingChatbotMessage, users[0]);
+      setPendingChatbotMessage(null);
+      setStudentMessageAppended(false);
+    }
+  }, [studentMessageAppended, pendingChatbotMessage]);
 
   return (
     <Sheet
@@ -66,7 +81,7 @@ export default function MyProfile() {
           appendMessage={appendMessage}
         />
       </Sheet>
-      <MessagesPane chat={selectedChat} appendMessage={appendMessage} />
+      <MessagesPane chat={selectedChat} appendMessage={appendMessage} setPendingChatbotMessage={setPendingChatbotMessage} />
     </Sheet>
   );
 }
