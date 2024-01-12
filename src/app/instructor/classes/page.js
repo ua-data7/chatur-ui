@@ -6,17 +6,15 @@ import CssBaseline from "@mui/joy/CssBaseline";
 
 import Box from "@mui/joy/Box";
 
-import Classes from "@/components/instructor/Classes";
+import Classes from "@/components/instructor/ManageClasses/Classes";
 
 export default function Instructor() {
     return (
         <CssVarsProvider disableTransitionOnChange>
             <CssBaseline />
-            <Box sx={{ display: "flex", minHeight: "100dvh" }}>
                 <Box component="main" className="MainContent" sx={{ flex: 1 }}>
                     <Classes />
                 </Box>
-            </Box>
         </CssVarsProvider>
     );
 }

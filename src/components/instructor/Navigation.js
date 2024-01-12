@@ -17,80 +17,80 @@ import StudentViewIcon from "@mui/icons-material/Visibility";
 import Link from "next/link";
 
 export const NAV_LINKS = {
-    WELCOME: "welcome",
-    CLASSES: "classes",
-    FILES: "files",
-    SETTINGS: "settings",
+  WELCOME: "welcome",
+  CLASSES: "classes",
+  FILES: "files",
+  SETTINGS: "settings",
 };
 
 export default function Navigation(props) {
-    const { selected } = props;
+  const { selected } = props;
 
-    return (
-        <List
-            size="sm"
-            sx={{
-                "--ListItem-radius": "var(--joy-radius-sm)",
-                "--List-gap": "4px",
-            }}
-        >
-            <ListItem nested>
-                <ListSubheader>
-                    <Avatar src="/images/nirav.jpg" />
-                </ListSubheader>
-                <ListItem>
-                    <ListItemButton selected={selected === NAV_LINKS.WELCOME}>
-                        <ListItemDecorator>
-                            <HomeIcon fontSize="small" />
-                        </ListItemDecorator>
-                        <ListItemContent>Welcome</ListItemContent>
-                    </ListItemButton>
-                </ListItem>
-                <ListItem>
-                    <ListItemButton
-                        component={Link}
-                        href="/instructor/classes"
-                        selected={selected === NAV_LINKS.CLASSES}
-                    >
-                        <ListItemDecorator>
-                            <LaptopIcon fontSize="small" />
-                        </ListItemDecorator>
-                        <ListItemContent>Manage Classes</ListItemContent>
-                    </ListItemButton>
-                </ListItem>
-                <ListItem>
-                    <ListItemButton
-                        component={Link}
-                        href="/instructor/files"
-                        selected={selected === NAV_LINKS.FILES}
-                    >
-                        <ListItemDecorator sx={{ color: "neutral.500" }}>
-                            <FolderIcon fontSize="small" />
-                        </ListItemDecorator>
-                        <ListItemContent>Manage Files</ListItemContent>
-                    </ListItemButton>
-                </ListItem>
-                <ListItem>
-                    <ListItemButton component={Link} href="/student">
-                        <ListItemDecorator sx={{ color: "neutral.500" }}>
-                            <StudentViewIcon fontSize="small" />
-                        </ListItemDecorator>
-                        <ListItemContent>Student View</ListItemContent>
-                    </ListItemButton>
-                </ListItem>
-                <ListItem>
-                    <ListItemButton
-                        component={Link}
-                        href="/instructor/settings"
-                        selected={selected === NAV_LINKS.SETTINGS}
-                    >
-                        <ListItemDecorator sx={{ color: "neutral.500" }}>
-                            <SettingsIcon fontSize="small" />
-                        </ListItemDecorator>
-                        <ListItemContent>Settings</ListItemContent>
-                    </ListItemButton>
-                </ListItem>
-            </ListItem>
-        </List>
-    );
+  return (
+    <List
+      size="sm"
+      sx={{
+        "--ListItem-radius": "var(--joy-radius-sm)",
+        "--List-gap": "4px",
+      }}
+    >
+      <ListItem nested>
+        <ListSubheader>
+          <Avatar src="/images/nirav.jpg" />
+        </ListSubheader>
+        <ListItem>
+          <ListItemButton selected={selected === NAV_LINKS.WELCOME}>
+            <ListItemDecorator>
+              <HomeIcon fontSize="small" />
+            </ListItemDecorator>
+            <ListItemContent>Welcome</ListItemContent>
+          </ListItemButton>
+        </ListItem>
+        <ListItem>
+          <ListItemButton
+            component={Link}
+            href="/instructor/classes"
+            selected={selected === NAV_LINKS.CLASSES}
+          >
+            <ListItemDecorator>
+              <LaptopIcon fontSize="small" />
+            </ListItemDecorator>
+            <ListItemContent>Manage Classes</ListItemContent>
+          </ListItemButton>
+        </ListItem>
+        <ListItem>
+          <ListItemButton
+            component={Link}
+            href="/instructor/files"
+            selected={selected === NAV_LINKS.FILES}
+          >
+            <ListItemDecorator sx={{ color: "neutral.500" }}>
+              <FolderIcon fontSize="small" />
+            </ListItemDecorator>
+            <ListItemContent>Manage Files</ListItemContent>
+          </ListItemButton>
+        </ListItem>
+        <ListItem>
+          <ListItemButton component={Link} href="/student">
+            <ListItemDecorator sx={{ color: "neutral.500" }}>
+              <StudentViewIcon fontSize="small" />
+            </ListItemDecorator>
+            <ListItemContent>Student View</ListItemContent>
+          </ListItemButton>
+        </ListItem>
+        <ListItem>
+          <ListItemButton
+            component={Link}
+            href="/instructor/settings"
+            selected={selected === NAV_LINKS.SETTINGS}
+          >
+            <ListItemDecorator sx={{ color: "neutral.500" }}>
+              <SettingsIcon fontSize="small" />
+            </ListItemDecorator>
+            <ListItemContent>Settings</ListItemContent>
+          </ListItemButton>
+        </ListItem>
+      </ListItem>
+    </List>
+  );
 }
