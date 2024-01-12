@@ -32,6 +32,7 @@
     "eslint-config-next": "14.0.4",
     "eslint-plugin-storybook": "^0.6.15",
     "prettier": "3.1.1",
-    "storybook": "^7.6.7"
+    "storybook": "^7.6.7",
+    "typescript": "^5.4.0-dev.20240112"
   }
 }
