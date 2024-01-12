@@ -38,7 +38,7 @@ export default function MessagesPaneHeader(props) {
         >
           <ArrowBackIosNewRoundedIcon />
         </IconButton>
-        <Avatar size="lg" src={sender.avatar} />
+        <Avatar size="lg" src={'/images/llama.png'} />
         <div>
           <Typography
             fontWeight="lg"
@@ -64,23 +64,12 @@ export default function MessagesPaneHeader(props) {
               ) : undefined
             }
           >
-            {sender.name}
+            Chatur
           </Typography>
-          <Typography level="body-sm">{sender.username}</Typography>
+          <Typography level="body-sm">CourseName</Typography>
         </div>
       </Stack>
       <Stack spacing={1} direction="row" alignItems="center">
-        <Button
-          startDecorator={<PhoneInTalkRoundedIcon />}
-          color="neutral"
-          variant="outlined"
-          size="sm"
-          sx={{
-            display: { xs: 'none', md: 'inline-flex' },
-          }}
-        >
-          Call
-        </Button>
         <Button
           color="neutral"
           variant="outlined"

@@ -8,10 +8,11 @@ import EditNoteRoundedIcon from '@mui/icons-material/EditNoteRounded';
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import ChatListItem from './ChatListItem';
+import ChatHistoryListItem from './ChatHistoryListItem'
 import { toggleMessagesPane } from '../../utils';
 
-export default function ChatsPane(props) {
-  const { chats, setSelectedChat, selectedChatId } = props;
+export default function HistoryPane(props) {
+  const { histories, setSelectedHistory, selectedHistoryId } = props;
   return (
     <Sheet
       sx={{
@@ -40,12 +41,12 @@ export default function ChatsPane(props) {
               size="md"
               slotProps={{ root: { component: 'span' } }}
             >
-              4
+              12
             </Chip>
           }
           sx={{ mr: 'auto' }}
         >
-         Chat History
+          Chat History
         </Typography>
         <IconButton
           variant="plain"
@@ -84,12 +85,12 @@ export default function ChatsPane(props) {
           '--ListItem-paddingX': '1rem',
         }}
       >
-        {chats.map((chat) => (
-          <ChatListItem
-            key={chat.id}
-            {...chat}
-            setSelectedChat={setSelectedChat}
-            selectedChatId={selectedChatId}
+        {histories.map((history) => (
+          <ChatHistoryListItem
+            key={history.id}
+            {...history}
+            setSelectedHistory={setSelectedHistory}
+            selectedHistoryId={selectedHistoryId}
           />
         ))}
       </List>

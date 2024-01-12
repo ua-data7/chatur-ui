@@ -1,44 +1,44 @@
 export const users = [
   {
-    name: 'Steve E.',
-    username: '@steveEberger',
-    avatar: '/static/images/avatar/2.jpg',
+    name: 'Chatur',
+    username: '@chatur',
+    avatar: '/images/llama.png',
     online: true,
   },
   {
-    name: 'Katherine Moss',
-    username: '@kathy',
-    avatar: '/static/images/avatar/3.jpg',
+    name: 'Chatur',
+    username: '@chatur',
+    avatar: '/images/llama.png',
     online: false,
   },
   {
-    name: 'Phoenix Baker',
-    username: '@phoenix',
-    avatar: '/static/images/avatar/1.jpg',
+    name: 'Chatur',
+    username: '@chatur',
+    avatar: '/images/llama.png',
     online: true,
   },
   {
-    name: 'Eleanor Pena',
-    username: '@eleanor',
-    avatar: '/static/images/avatar/4.jpg',
+    name: 'Chatur',
+    username: '@chatur',
+    avatar: '/images/llama.png',
     online: false,
   },
   {
-    name: 'Kenny Peterson',
-    username: '@kenny',
-    avatar: '/static/images/avatar/5.jpg',
+    name: 'Chatur',
+    username: '@chatur',
+    avatar: '/images/llama.png',
     online: true,
   },
   {
-    name: 'Al Sanders',
-    username: '@al',
-    avatar: '/static/images/avatar/6.jpg',
+    name: 'Chatur',
+    username: '@chatur',
+    avatar: '/images/llama.png',
     online: true,
   },
   {
-    name: 'Melissa Van Der Berg',
-    username: '@melissa',
-    avatar: '/static/images/avatar/7.jpg',
+    name: 'Chatur',
+    username: '@chatur',
+    avatar: '/images/llama.png',
     online: false,
   },
 ];
@@ -50,13 +50,13 @@ export const chats = [
     messages: [
       {
         id: '1',
-        content: 'Hi Olivia, I am currently working on the project.',
+        content: 'Glad I was able to help!',
         timestamp: 'Wednesday 9:00am',
         sender: users[0],
       },
       {
         id: '2',
-        content: 'That sounds great, Mabel! Keep up the good work.',
+        content: 'Hopefully that helps a bit.',
         timestamp: 'Wednesday 9:10am',
         sender: 'You',
       },
@@ -96,7 +96,7 @@ export const chats = [
         id: '3',
         timestamp: 'Thursday 11:40am',
         sender: users[0],
-        content: 'Tech requirements.pdf',
+        content: 'Exercise requirements.pdf',
         attachment: {
           fileName: 'Tech requirements.pdf',
           type: 'pdf',
@@ -135,7 +135,7 @@ export const chats = [
     messages: [
       {
         id: '1',
-        content: 'Hi Olivia, I am thinking about taking a vacation.',
+        content: 'As an AI, I cannot take a vacation.',
         timestamp: 'Wednesday 9:00am',
         sender: users[1],
       },
@@ -268,3 +268,86 @@ export const chats = [
     ],
   },
 ];
+
+export const histories = [
+  {
+    id: '1',
+    summary: 'Module 1',
+    messages: [
+      {
+        id: '1',
+        content:
+          'Why is the sky blue?',
+        timestamp: 'Wednesday 9:00am',
+        sender: 'Chatur',
+      },
+      {
+        id: '2',
+        content:
+          'That sounds interesting! What kind of improvements are you considering?',
+        timestamp: 'Wednesday 9:05am',
+        sender: 'You',
+      },
+      {
+        id: '3',
+        content: 'I am planning to repaint the walls and replace the old furniture.',
+        timestamp: 'Wednesday 9:15am',
+        sender: 'Chatur',
+      },
+      {
+        id: '4',
+        content:
+          'That will definitely give your house a fresh look. Do you need help with anything?',
+        timestamp: 'Wednesday 9:20am',
+        sender: 'You',
+      },
+      {
+        id: '5',
+        content:
+          'I might need some help with picking the right paint colors. Can we discuss this over the weekend?',
+        timestamp: 'Wednesday 9:30am',
+        sender: 'Chatur',
+      },
+    ],
+  },
+  {
+    id: '1',
+    summary: 'Module 2',
+    messages: [
+      {
+        id: '1',
+        content:
+          'Why is the sky blue?',
+        timestamp: 'Wednesday 9:00am',
+        sender: 'Chatur',
+      },
+      {
+        id: '2',
+        content:
+          'That sounds interesting! What kind of improvements are you considering?',
+        timestamp: 'Wednesday 9:05am',
+        sender: 'You',
+      },
+      {
+        id: '3',
+        content: 'I am planning to repaint the walls and replace the old furniture.',
+        timestamp: 'Wednesday 9:15am',
+        sender: 'Chatur',
+      },
+      {
+        id: '4',
+        content:
+          'That will definitely give your house a fresh look. Do you need help with anything?',
+        timestamp: 'Wednesday 9:20am',
+        sender: 'You',
+      },
+      {
+        id: '5',
+        content:
+          'I might need some help with picking the right paint colors. Can we discuss this over the weekend?',
+        timestamp: 'Wednesday 9:30am',
+        sender: 'Chatur',
+      },
+    ],
+  },
+]
