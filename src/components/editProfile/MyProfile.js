@@ -68,7 +68,7 @@ export default function MyProfile() {
               fontSize={12}
               fontWeight={500}
             >
-              Users
+              Instructor
             </Link>
             <Typography color="primary" fontWeight={500} fontSize={12}>
               My profile
@@ -78,47 +78,6 @@ export default function MyProfile() {
             My profile
           </Typography>
         </Box>
-        <Tabs
-          defaultValue={0}
-          sx={{
-            bgcolor: 'transparent',
-          }}
-        >
-          <TabList
-            tabFlex={1}
-            size="sm"
-            sx={{
-              pl: { xs: 0, md: 4 },
-              justifyContent: 'left',
-              [`&& .${tabClasses.root}`]: {
-                fontWeight: '600',
-                flex: 'initial',
-                color: 'text.tertiary',
-                [`&.${tabClasses.selected}`]: {
-                  bgcolor: 'transparent',
-                  color: 'text.primary',
-                  '&::after': {
-                    height: '2px',
-                    bgcolor: 'primary.500',
-                  },
-                },
-              },
-            }}
-          >
-            <Tab sx={{ borderRadius: '6px 6px 0 0' }} indicatorInset value={0}>
-              Settings
-            </Tab>
-            <Tab sx={{ borderRadius: '6px 6px 0 0' }} indicatorInset value={1}>
-              Team
-            </Tab>
-            <Tab sx={{ borderRadius: '6px 6px 0 0' }} indicatorInset value={2}>
-              Plan
-            </Tab>
-            <Tab sx={{ borderRadius: '6px 6px 0 0' }} indicatorInset value={3}>
-              Billing
-            </Tab>
-          </TabList>
-        </Tabs>
       </Box>
       <Stack
         spacing={4}
@@ -150,8 +109,8 @@ export default function MyProfile() {
                 sx={{ flex: 1, minWidth: 150,maxWidth: 150, borderRadius: '100%' }}
               >
                 <img
-                  src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=286"
-                  srcSet="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=286&dpr=2 2x"
+                  src="/images/nirav.jpg"
+                  srcSet="/images/nirav.jpg"
                   loading="lazy"
                   alt=""
                 />
@@ -180,14 +139,14 @@ export default function MyProfile() {
                 <FormControl
                   sx={{ display: { sm: 'flex-column', md: 'flex-row' }, gap: 2 }}
                 >
-                  <Input size="sm" placeholder="First name" />
-                  <Input size="sm" placeholder="Last name" sx={{ flexGrow: 1 }} />
+                  <Input size="sm" placeholder="Nirav" />
+                  <Input size="sm" placeholder="Merchant" sx={{ flexGrow: 1 }} />
                 </FormControl>
               </Stack>
               <Stack direction="column" spacing={2}>
                 <FormControl>
                   <FormLabel>Role</FormLabel>
-                  <Input size="sm" defaultValue="UI Developer" />
+                  <Input size="sm" defaultValue="Chatur Operator No. 1" />
                 </FormControl>
                 <FormControl sx={{ flexGrow: 1 }}>
                   <FormLabel>Email</FormLabel>
@@ -196,7 +155,7 @@ export default function MyProfile() {
                     type="email"
                     startDecorator={<EmailRoundedIcon />}
                     placeholder="email"
-                    defaultValue="siriwatk@test.com"
+                    defaultValue="nirav@test.com"
                     sx={{ flexGrow: 1 }}
                   />
                 </FormControl>
@@ -213,15 +172,15 @@ export default function MyProfile() {
                     defaultValue="1"
                   >
                     <Option value="1">
-                      Indochina Time (Bangkok){' '}
+                      Mountain Standard Time (Phoenix){' '}
                       <Typography textColor="text.tertiary" ml={0.5}>
-                        — GMT+07:00
+                        — GMT-07:00
                       </Typography>
                     </Option>
                     <Option value="2">
-                      Indochina Time (Ho Chi Minh City){' '}
+                      MST Time (Phoenix){' '}
                       <Typography textColor="text.tertiary" ml={0.5}>
-                        — GMT+07:00
+                        — GMT-07:00
                       </Typography>
                     </Option>
                   </Select>
@@ -242,8 +201,8 @@ export default function MyProfile() {
                   sx={{ flex: 1, minWidth: 108, borderRadius: '100%' }}
                 >
                   <img
-                    src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=286"
-                    srcSet="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=286&dpr=2 2x"
+                    src="/images/nirav.jpg"
+                    srcSet="/images/nirav.jpg"
                     loading="lazy"
                     alt=""
                   />
@@ -284,7 +243,7 @@ export default function MyProfile() {
             </Stack>
             <FormControl>
               <FormLabel>Role</FormLabel>
-              <Input size="sm" defaultValue="UI Developer" />
+              <Input size="sm" defaultValue="Professor" />
             </FormControl>
             <FormControl sx={{ flexGrow: 1 }}>
               <FormLabel>Email</FormLabel>
@@ -293,7 +252,7 @@ export default function MyProfile() {
                 type="email"
                 startDecorator={<EmailRoundedIcon />}
                 placeholder="email"
-                defaultValue="siriwatk@test.com"
+                defaultValue="nirav@test.com"
                 sx={{ flexGrow: 1 }}
               />
             </FormControl>
@@ -309,15 +268,15 @@ export default function MyProfile() {
                   defaultValue="1"
                 >
                   <Option value="1">
-                    Indochina Time (Bangkok){' '}
+                    Mountain Standard Time (Phoenix){' '}
                     <Typography textColor="text.tertiary" ml={0.5}>
-                      — GMT+07:00
+                      — GMT-07:00
                     </Typography>
                   </Option>
                   <Option value="2">
-                    Indochina Time (Ho Chi Minh City){' '}
+                    Mountain Standard Time (Phoenix){' '}
                     <Typography textColor="text.tertiary" ml={0.5}>
-                      — GMT+07:00
+                      — GMT-07:00
                     </Typography>
                   </Option>
                 </Select>
@@ -349,7 +308,8 @@ export default function MyProfile() {
               size="sm"
               minRows={4}
               sx={{ mt: 1.5 }}
-              defaultValue="I'm a software developer based in Bangkok, Thailand. My goal is to solve UI problems with neat CSS without using too much JavaScript."
+              defaultValue="Nirav Merchant is the Co-PI for NSF CyVerse  a national scale Cyberinfrastructure for life sciences and NSF Jetstream  the first user-friendly, scalable cloud environment for NSF XSEDE.
+"
             />
             <FormHelperText sx={{ mt: 0.75, fontSize: 'xs' }}>
               275 characters left
@@ -366,7 +326,9 @@ export default function MyProfile() {
             </CardActions>
           </CardOverflow>
         </Card>
-        <Card>
+
+        {/* Uncomment the following card for a Profile box*/}                  
+        {/* <div> <Card>
           <Box sx={{ mb: 1 }}>
             <Typography level="title-md">Portfolio projects</Typography>
             <Typography level="body-sm">
@@ -399,7 +361,7 @@ export default function MyProfile() {
               </Button>
             </CardActions>
           </CardOverflow>
-        </Card>
+        </Card> </div> */}
       </Stack>
     </Box>
   );
