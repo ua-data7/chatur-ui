@@ -3,6 +3,8 @@
 import * as React from "react";
 import { CssVarsProvider } from "@mui/joy/styles";
 import CssBaseline from "@mui/joy/CssBaseline";
+import MyProfile from '@/components/editProfile/MyProfile';
+
 
 import Box from "@mui/joy/Box";
 
