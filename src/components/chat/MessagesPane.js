@@ -5,7 +5,7 @@ import Stack from '@mui/joy/Stack';
 import AvatarWithStatus from './AvatarWithStatus';
 import ChatBubble from './ChatBubble';
 import MessageInput from './MessageInput';
-import MessagesPaneHeader from './MessagesPaneHeader';
+
 
 
 export default function MessagesPane(props) {
@@ -26,7 +26,6 @@ export default function MessagesPane(props) {
         backgroundColor: 'background.level1',
       }}
     >
-      <MessagesPaneHeader sender={chat.sender} />
       <Box
         sx={{
           display: 'flex',
