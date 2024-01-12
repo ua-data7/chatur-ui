@@ -42,7 +42,7 @@ export default function ContrySelector(props) {
         )}
         slotProps={{
           input: {
-            autoComplete: 'new-password', // disable autocomplete and autofill
+            autoComplete: 'new-password', 
           },
         }}
       />
