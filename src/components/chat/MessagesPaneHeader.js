@@ -66,21 +66,10 @@ export default function MessagesPaneHeader(props) {
           >
             Chatur
           </Typography>
-          <Typography level="body-sm">AI Bot</Typography>
+          <Typography level="body-sm">CourseName</Typography>
         </div>
       </Stack>
       <Stack spacing={1} direction="row" alignItems="center">
-        <Button
-          startDecorator={<PhoneInTalkRoundedIcon />}
-          color="neutral"
-          variant="outlined"
-          size="sm"
-          sx={{
-            display: { xs: 'none', md: 'inline-flex' },
-          }}
-        >
-          Call
-        </Button>
         <Button
           color="neutral"
           variant="outlined"
