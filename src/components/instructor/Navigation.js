@@ -39,7 +39,8 @@ export default function Navigation(props) {
           <Avatar src="/images/nirav.jpg" />
         </ListSubheader>
         <ListItem>
-          <ListItemButton selected={selected === NAV_LINKS.WELCOME}>
+          <ListItemButton component={Link}
+            href="/" selected={selected === NAV_LINKS.WELCOME}>
             <ListItemDecorator>
               <HomeIcon fontSize="small" />
             </ListItemDecorator>
