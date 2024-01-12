@@ -1,6 +1,9 @@
+import { useState } from "react";
+
 import Files from "../components/instructor/Files";
 
-// More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
+import { courses } from "../data";
+
 export default {
     title: "Instructor / Files",
     component: Files,
@@ -9,4 +12,20 @@ export default {
     },
 };
 
-export const FilesView = {};
+const FilesPageMock = () => {
+    const [selectedCourse, setSelectedCourse] = useState("RNR 355 2024");
+
+    return (
+        <Files
+            courses={courses}
+            courseFileListing={courses.find(
+                (course) => course.label === selectedCourse
+            )}
+            onCourseChange={setSelectedCourse}
+        />
+    );
+};
+
+export const FilesView = {
+    render: FilesPageMock,
+};
