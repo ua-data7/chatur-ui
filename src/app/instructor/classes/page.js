@@ -6,7 +6,7 @@ import CssBaseline from "@mui/joy/CssBaseline";
 
 import Box from "@mui/joy/Box";
 
-import Welcome from "@/components/instructor/Welcome";
+import Classes from "@/components/instructor/Classes";
 
 export default function Instructor() {
     return (
@@ -14,7 +14,7 @@ export default function Instructor() {
             <CssBaseline />
             <Box sx={{ display: "flex", minHeight: "100dvh" }}>
                 <Box component="main" className="MainContent" sx={{ flex: 1 }}>
-                    <Welcome />
+                    <Classes />
                 </Box>
             </Box>
         </CssVarsProvider>
