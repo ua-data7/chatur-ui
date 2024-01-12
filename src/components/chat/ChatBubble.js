@@ -9,9 +9,9 @@ import CelebrationOutlinedIcon from '@mui/icons-material/CelebrationOutlined';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import InsertDriveFileRoundedIcon from '@mui/icons-material/InsertDriveFileRounded';
 
-
 export default function ChatBubble(props) {
-  const { content, variant, timestamp, attachment = undefined, sender } = props;
+  const { message, timestamp, sender, variant, attachment } = props;
+
   const isSent = variant === 'sent';
   const [isHovered, setIsHovered] = React.useState(false);
   const [isLiked, setIsLiked] = React.useState(false);
@@ -27,7 +27,16 @@ export default function ChatBubble(props) {
         <Typography level="body-xs">
           {sender === 'You' ? sender : sender.name}
         </Typography>
-        <Typography level="body-xs">{timestamp}</Typography>
+          <Typography level="body-xs">
+            {new Date(timestamp).toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+              hour: '2-digit',
+              minute: '2-digit',
+              second: '2-digit'
+            })}
+        </Typography>
       </Stack>
       {attachment ? (
         <Sheet
@@ -77,7 +86,7 @@ export default function ChatBubble(props) {
                   : 'var(--joy-palette-text-primary)',
               }}
             >
-              {content}
+              {message}
             </Typography>
           </Sheet>
           {(isHovered || isLiked || isCelebrated) && (
