@@ -1,11 +1,23 @@
 "use client";
 
-import Button from '@mui/joy/Button';
+import {Button,Grid }from '@mui/joy';
+import Link from 'next/link';
 
 export default function Home() {
   return (
     <main>
-      <Button variant="soft">Hello world</Button>
+      <Grid m={4} container spacing={3} direction="column">
+        <Grid>
+      <Link href="/instructor">
+      <Button variant="soft">Instructor View</Button>
+      </Link>
+      </Grid>
+      <Grid>
+      <Link href="/student">
+      <Button variant="soft">Student View</Button>
+      </Link>
+      </Grid>
+      </Grid>
     </main>
   )
 }
