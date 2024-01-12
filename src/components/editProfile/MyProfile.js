@@ -139,15 +139,15 @@ export default function MyProfile() {
           </Box>
           <Divider />
           <Stack
-            direction="row"
+            direction="column"
             spacing={3}
             sx={{ display: { xs: 'none', md: 'flex' }, my: 1 }}
           >
-            <Stack direction="column" spacing={1}>
+            <Stack direction="column" spacing={1} alignItems="center"> 
               <AspectRatio
                 ratio="1"
-                maxHeight={200}
-                sx={{ flex: 1, minWidth: 120, borderRadius: '100%' }}
+                height={'auto'}
+                sx={{ flex: 1, minWidth: 150,maxWidth: 150, borderRadius: '100%' }}
               >
                 <img
                   src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=286"
@@ -184,7 +184,7 @@ export default function MyProfile() {
                   <Input size="sm" placeholder="Last name" sx={{ flexGrow: 1 }} />
                 </FormControl>
               </Stack>
-              <Stack direction="row" spacing={2}>
+              <Stack direction="column" spacing={2}>
                 <FormControl>
                   <FormLabel>Role</FormLabel>
                   <Input size="sm" defaultValue="UI Developer" />
