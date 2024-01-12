@@ -17,12 +17,13 @@ export default function MessageInput(props) {
         setIsLoading(true);
 
         // Replace 'YOUR_API_KEY' with the actual API key
-        const apiKey = '';
+        const apiKey = process.env.NEXT_PUBLIC_CHAT_API_KEY;
+        const apiUrl = process.env.NEXT_PUBLIC_CHAT_API_URL;
 
         // Replace 'YOUR_MODEL_NAME' with the actual model name
         const modelName = 'Mistral-7B-OpenOrca';
 
-        const response = await fetch('https://chatur-api.cyverse.ai/v1/chat/completions', {
+        const response = await fetch(apiUrl, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
