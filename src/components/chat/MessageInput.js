@@ -8,12 +8,15 @@ import React, { useState } from 'react';
 import SendRoundedIcon from '@mui/icons-material/SendRounded';
 
 export default function MessageInput(props) {
-  const { textAreaValue, setTextAreaValue, onSubmit } = props;
+  const { textAreaValue, setTextAreaValue, onSubmit, appendMessage } = props;
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [apiResponse, setApiResponse] = useState('');
 
   const handleClick = async () => {
+    
+    onSubmit();
+
     try {
       if (textAreaValue.trim() !== '') {
         setIsLoading(true);
@@ -42,15 +45,13 @@ export default function MessageInput(props) {
           throw new Error('Failed to send message');
         }
 
-        // Assuming onSubmit is meant to handle the successful API call
-        onSubmit();
-
         // Clear the text area after submitting
         setTextAreaValue('');
 
         // Set the API response to display in the chat
         const responseBody = await response.json();
-        setApiResponse(responseBody.choices[0].message); // Replace 'message' with the actual property in your API response
+        console.log(responseBody)
+        appendMessage(responseBody.choices[0].message.content); // Replace 'message' with the actual property in your API response
       }
     } catch (error) {
       setError(error.message);

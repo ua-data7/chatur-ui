@@ -3,12 +3,36 @@ import Sheet from '@mui/joy/Sheet';
 
 import MessagesPane from './MessagesPane';
 import ChatsPane from './ChatsPane';
-import HistoryPane from './HistoryPane.js';
-import { chats } from '../../data';
-import { histories } from '../../data'
+import { users } from '../../data';
 
 export default function MyProfile() {
-  const [selectedHistory, setSelectedHistory] = React.useState(chats[0]);
+
+  const initialChat = {
+    id: 1,
+    sender: users[0],
+    messages: []
+  };
+
+  const [selectedChat, setSelectedChat] = React.useState(initialChat);
+
+  function appendMessage(messageString) {
+
+    const newMessage = {
+      sender: users[0],
+      message: messageString,
+      timestamp: Date.now()
+    }
+
+    if (selectedChat && Array.isArray(selectedChat.messages)) {
+        setSelectedChat(prevChat => ({
+            ...prevChat,
+            messages: [...prevChat.messages, newMessage]
+        }));
+    } else {
+        console.error("Invalid chat selection or messages not an array");
+    }
+  };
+
   return (
     <Sheet
       sx={{
@@ -36,13 +60,13 @@ export default function MyProfile() {
           top: 52,
         }}
       >
-        <HistoryPane
-          histories={histories}
-          selectedChatId={selectedHistory.id}
-          setSelectedChat={setSelectedHistory}
+        <ChatsPane
+          chats={[initialChat]}
+          selectedChatId={selectedChat.id}
+          appendMessage={appendMessage}
         />
       </Sheet>
-      <MessagesPane chat={selectedHistory} />
+      <MessagesPane chat={selectedChat} appendMessage={appendMessage} />
     </Sheet>
   );
 }

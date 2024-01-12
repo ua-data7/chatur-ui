@@ -9,7 +9,7 @@ import MessageInput from './MessageInput';
 
 
 export default function MessagesPane(props) {
-  const { chat } = props;
+  const { chat, appendMessage } = props;
   const [chatMessages, setChatMessages] = React.useState(chat.messages);
   const [textAreaValue, setTextAreaValue] = React.useState('');
 
@@ -60,6 +60,7 @@ export default function MessagesPane(props) {
         </Stack>
       </Box>
       <MessageInput
+        appendMessage={appendMessage}
         textAreaValue={textAreaValue}
         setTextAreaValue={setTextAreaValue}
         onSubmit={() => {
