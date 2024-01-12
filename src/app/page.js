@@ -1,6 +1,6 @@
 "use client";
 
-import {Button,Grid }from '@mui/joy';
+import {Button,Grid,Typography} from '@mui/joy';
 import Link from 'next/link';
 
 export default function Home() {
