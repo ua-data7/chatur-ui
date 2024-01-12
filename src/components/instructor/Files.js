@@ -4,7 +4,7 @@ import Navigation, { NAV_LINKS } from "./Navigation";
 import * as Layout from "./Layout";
 
 import numeral from "numeral";
-import { Table, Typography } from "@mui/joy";
+import { Option, Select, Table, Typography } from "@mui/joy";
 import FolderIcon from "@mui/icons-material/Folder";
 
 const formatFileSize = (size) => {
@@ -19,7 +19,7 @@ const formatFileSize = (size) => {
 };
 
 export default function Files(props) {
-    const { classFileListing } = props;
+    const { courses, courseFileListing, onCourseChange } = props;
 
     return (
         <Layout.Root>
@@ -30,9 +30,16 @@ export default function Files(props) {
                 <Typography startDecorator={<FolderIcon />} level="title-lg">
                     Manage Files
                 </Typography>
-                <Typography level="title-md">
-                    {classFileListing?.label}
-                </Typography>
+                <Select
+                    value={courseFileListing?.label || ""}
+                    onChange={(event, value) => onCourseChange(value)}
+                >
+                    {courses?.map((course) => (
+                        <Option key={course.id} value={course.label}>
+                            {course.label}
+                        </Option>
+                    ))}
+                </Select>
                 <Table
                     hoverRow
                     size="lg"
@@ -44,7 +51,7 @@ export default function Files(props) {
                     }}
                 >
                     <tbody>
-                        {classFileListing?.files.map((file) => (
+                        {courseFileListing?.files.map((file) => (
                             <tr key={file.path}>
                                 <td>
                                     <Typography
