@@ -1,9 +1,45 @@
 export const users = [
   {
     name: 'Chatur',
-    username: '@ChaturLLM',
-    avatar: '/static/images/avatar/2.jpg',
+    username: '@chatur',
+    avatar: '/images/llamacactus.png',
     online: true,
+  },
+  {
+    name: 'Chatur',
+    username: '@chatur',
+    avatar: '/images/llamacactus.png',
+    online: false,
+  },
+  {
+    name: 'Chatur',
+    username: '@chatur',
+    avatar: '/images/llamacactus.png',
+    online: true,
+  },
+  {
+    name: 'Chatur',
+    username: '@chatur',
+    avatar: '/images/llamacactus.png',
+    online: false,
+  },
+  {
+    name: 'Chatur',
+    username: '@chatur',
+    avatar: '/images/llamacactus.png',
+    online: true,
+  },
+  {
+    name: 'Chatur',
+    username: '@chatur',
+    avatar: '/images/llamacactus.png',
+    online: true,
+  },
+  {
+    name: 'Chatur',
+    username: '@chatur',
+    avatar: '/images/llamacactus.png',
+    online: false,
   },
 ];
 
