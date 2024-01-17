@@ -2,6 +2,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+After cloning the repo, copy `.env` to `.env.local` and provide values for `NEXT_PUBLIC_CHAT_API_URL` and `NEXT_PUBLIC_CHAT_API_KEY`.
+
 Check you have `node` installed, and install your package manager for node (`npm`, `yarn`, `pnpm` or `bun`):
 
 ```
