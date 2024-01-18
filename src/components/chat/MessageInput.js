@@ -1,19 +1,24 @@
-import Box from '@mui/joy/Box';
-import Button from '@mui/joy/Button';
-import FormControl from '@mui/joy/FormControl';
-import Textarea from '@mui/joy/Textarea';
-import { Stack } from '@mui/joy';
-import React, { useState } from 'react';
-import SendRoundedIcon from '@mui/icons-material/SendRounded';
+import Box from "@mui/joy/Box";
+import Button from "@mui/joy/Button";
+import FormControl from "@mui/joy/FormControl";
+import Textarea from "@mui/joy/Textarea";
+import { Stack } from "@mui/joy";
+import React, { useState } from "react";
+import SendRoundedIcon from "@mui/icons-material/SendRounded";
 
 export default function MessageInput(props) {
-  const { textAreaValue, setTextAreaValue, appendMessage, setPendingChatbotMessage } = props;
+  const {
+    textAreaValue,
+    setTextAreaValue,
+    appendMessage,
+    setPendingChatbotMessage,
+  } = props;
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
   const handleChatbotResponse = async () => {
     try {
-      if (textAreaValue.trim() !== '') {
+      if (textAreaValue.trim() !== "") {
         setIsLoading(true);
 
         // Replace 'YOUR_API_KEY' with the actual API key
@@ -21,24 +26,22 @@ export default function MessageInput(props) {
         const apiUrl = process.env.NEXT_PUBLIC_CHAT_API_URL;
 
         // Replace 'YOUR_MODEL_NAME' with the actual model name
-        const modelName = 'Mistral-7B-OpenOrca';
+        const modelName = "Mistral-7B-OpenOrca";
 
         const response = await fetch(apiUrl, {
-          method: 'POST',
+          method: "POST",
           headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${apiKey}`,
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${apiKey}`,
           },
           body: JSON.stringify({
             model: modelName,
-            messages: [
-              { role: 'user', content: textAreaValue },
-            ],
+            messages: [{ role: "user", content: textAreaValue }],
           }),
         });
 
         if (!response.ok) {
-          throw new Error('Failed to send message');
+          throw new Error("Failed to send message");
         }
 
         // Set the API response to display in the chat
@@ -53,10 +56,10 @@ export default function MessageInput(props) {
   };
 
   const handleClick = async () => {
-    appendMessage(textAreaValue, 'You');
-     // Clear the text area after submitting
-    setTextAreaValue('');
-    handleChatbotResponse();    
+    appendMessage(textAreaValue, "You");
+    // Clear the text area after submitting
+    setTextAreaValue("");
+    handleChatbotResponse();
   };
 
   return (
@@ -80,29 +83,29 @@ export default function MessageInput(props) {
               sx={{
                 py: 1,
                 pr: 1,
-                borderTop: '1px solid',
-                borderColor: 'divider',
+                borderTop: "1px solid",
+                borderColor: "divider",
               }}
             >
               <Button
                 size="sm"
                 color="primary"
-                sx={{ alignSelf: 'center', borderRadius: 'sm' }}
+                sx={{ alignSelf: "center", borderRadius: "sm" }}
                 endDecorator={<SendRoundedIcon />}
                 onClick={handleClick}
                 disabled={isLoading}
               >
-                {isLoading ? 'Sending...' : 'Send'}
+                {isLoading ? "Sending..." : "Send"}
               </Button>
             </Stack>
           }
           onKeyDown={(event) => {
-            if (event.key === 'Enter' && (event.metaKey || event.ctrlKey)) {
+            if (event.key === "Enter" && (event.metaKey || event.ctrlKey)) {
               handleClick();
             }
           }}
           sx={{
-            '& textarea:first-of-type': {
+            "& textarea:first-of-type": {
               minHeight: 72,
             },
           }}

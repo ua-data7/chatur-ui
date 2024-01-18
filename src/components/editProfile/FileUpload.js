@@ -1,19 +1,17 @@
-import * as React from 'react';
-import AspectRatio from '@mui/joy/AspectRatio';
-import Box from '@mui/joy/Box';
-import Card, { CardProps } from '@mui/joy/Card';
-import CardContent from '@mui/joy/CardContent';
-import IconButton from '@mui/joy/IconButton';
-import LinearProgress from '@mui/joy/LinearProgress';
-import Typography from '@mui/joy/Typography';
+import * as React from "react";
+import AspectRatio from "@mui/joy/AspectRatio";
+import Box from "@mui/joy/Box";
+import Card, { CardProps } from "@mui/joy/Card";
+import CardContent from "@mui/joy/CardContent";
+import IconButton from "@mui/joy/IconButton";
+import LinearProgress from "@mui/joy/LinearProgress";
+import Typography from "@mui/joy/Typography";
 
-import InsertDriveFileRoundedIcon from '@mui/icons-material/InsertDriveFileRounded';
-import CheckRoundedIcon from '@mui/icons-material/CheckRounded';
-import RemoveCircleOutlineRoundedIcon from '@mui/icons-material/RemoveCircleOutlineRounded';
+import InsertDriveFileRoundedIcon from "@mui/icons-material/InsertDriveFileRounded";
+import CheckRoundedIcon from "@mui/icons-material/CheckRounded";
+import RemoveCircleOutlineRoundedIcon from "@mui/icons-material/RemoveCircleOutlineRounded";
 
-export default function FileUpload(
-  props,
-) {
+export default function FileUpload(props) {
   const { icon, fileName, fileSize, progress, sx, ...other } = props;
   return (
     <Card
@@ -23,7 +21,7 @@ export default function FileUpload(
       sx={[
         {
           gap: 1.5,
-          alignItems: 'flex-start',
+          alignItems: "flex-start",
         },
         ...(Array.isArray(sx) ? sx : [sx]),
       ]}
@@ -34,8 +32,8 @@ export default function FileUpload(
         color="neutral"
         sx={{
           minWidth: 32,
-          borderRadius: '50%',
-          '--Icon-fontSize': '16px',
+          borderRadius: "50%",
+          "--Icon-fontSize": "16px",
         }}
       >
         <div>{icon ?? <InsertDriveFileRoundedIcon />}</div>
@@ -43,7 +41,7 @@ export default function FileUpload(
       <CardContent>
         <Typography fontSize="sm">{fileName}</Typography>
         <Typography level="body-xs">{fileSize}</Typography>
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+        <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
           <LinearProgress
             color="neutral"
             value={progress}
@@ -51,7 +49,7 @@ export default function FileUpload(
             sx={[
               {
                 ...(progress >= 100 && {
-                  color: 'var(--joy-palette-success-solidBg)',
+                  color: "var(--joy-palette-success-solidBg)",
                 }),
               },
             ]}
@@ -66,8 +64,8 @@ export default function FileUpload(
           color="success"
           sx={{
             minWidth: 20,
-            borderRadius: '50%',
-            '--Icon-fontSize': '14px',
+            borderRadius: "50%",
+            "--Icon-fontSize": "14px",
           }}
         >
           <div>
@@ -75,7 +73,12 @@ export default function FileUpload(
           </div>
         </AspectRatio>
       ) : (
-        <IconButton variant="plain" color="danger" size="sm" sx={{ mt: -1, mr: -1 }}>
+        <IconButton
+          variant="plain"
+          color="danger"
+          size="sm"
+          sx={{ mt: -1, mr: -1 }}
+        >
           <RemoveCircleOutlineRoundedIcon />
         </IconButton>
       )}

@@ -1,24 +1,24 @@
-import * as React from 'react';
-import Stack from '@mui/joy/Stack';
-import Sheet from '@mui/joy/Sheet';
-import Typography from '@mui/joy/Typography';
-import { Box, Chip, IconButton, Input } from '@mui/joy';
-import List from '@mui/joy/List';
-import EditNoteRoundedIcon from '@mui/icons-material/EditNoteRounded';
-import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
-import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
-import ChatListItem from './ChatListItem';
-import { toggleMessagesPane } from '../../utils';
+import * as React from "react";
+import Stack from "@mui/joy/Stack";
+import Sheet from "@mui/joy/Sheet";
+import Typography from "@mui/joy/Typography";
+import { Box, Chip, IconButton, Input } from "@mui/joy";
+import List from "@mui/joy/List";
+import EditNoteRoundedIcon from "@mui/icons-material/EditNoteRounded";
+import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
+import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
+import ChatListItem from "./ChatListItem";
+import { toggleMessagesPane } from "../../utils";
 
 export default function ChatsPane(props) {
   const { chats, setSelectedChat, selectedChatId } = props;
   return (
     <Sheet
       sx={{
-        borderRight: '1px solid',
-        borderColor: 'divider',
-        height: 'calc(100dvh - var(--Header-height))',
-        overflowY: 'auto',
+        borderRight: "1px solid",
+        borderColor: "divider",
+        height: "calc(100dvh - var(--Header-height))",
+        overflowY: "auto",
       }}
     >
       <Stack
@@ -30,7 +30,7 @@ export default function ChatsPane(props) {
         pb={1.5}
       >
         <Typography
-          fontSize={{ xs: 'md', md: 'lg' }}
+          fontSize={{ xs: "md", md: "lg" }}
           component="h1"
           fontWeight="lg"
           endDecorator={
@@ -38,21 +38,21 @@ export default function ChatsPane(props) {
               variant="soft"
               color="primary"
               size="md"
-              slotProps={{ root: { component: 'span' } }}
+              slotProps={{ root: { component: "span" } }}
             >
               4
             </Chip>
           }
-          sx={{ mr: 'auto' }}
+          sx={{ mr: "auto" }}
         >
-         Chat History
+          Chat History
         </Typography>
         <IconButton
           variant="plain"
           aria-label="edit"
           color="neutral"
           size="sm"
-          sx={{ display: { xs: 'none', sm: 'unset' } }}
+          sx={{ display: { xs: "none", sm: "unset" } }}
         >
           <EditNoteRoundedIcon />
         </IconButton>
@@ -64,7 +64,7 @@ export default function ChatsPane(props) {
           onClick={() => {
             toggleMessagesPane();
           }}
-          sx={{ display: { sm: 'none' } }}
+          sx={{ display: { sm: "none" } }}
         >
           <CloseRoundedIcon />
         </IconButton>
@@ -80,8 +80,8 @@ export default function ChatsPane(props) {
       <List
         sx={{
           py: 0,
-          '--ListItem-paddingY': '0.75rem',
-          '--ListItem-paddingX': '1rem',
+          "--ListItem-paddingY": "0.75rem",
+          "--ListItem-paddingX": "1rem",
         }}
       >
         {chats.map((chat) => (

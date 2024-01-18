@@ -1,16 +1,15 @@
-import * as React from 'react';
-import Avatar from '@mui/joy/Avatar';
-import Button from '@mui/joy/Button';
-import Chip from '@mui/joy/Chip';
-import IconButton from '@mui/joy/IconButton';
-import Stack from '@mui/joy/Stack';
-import Typography from '@mui/joy/Typography';
-import CircleIcon from '@mui/icons-material/Circle';
-import ArrowBackIosNewRoundedIcon from '@mui/icons-material/ArrowBackIosNewRounded';
-import PhoneInTalkRoundedIcon from '@mui/icons-material/PhoneInTalkRounded';
-import MoreVertRoundedIcon from '@mui/icons-material/MoreVertRounded';
-import { toggleMessagesPane } from '../../utils';
-
+import * as React from "react";
+import Avatar from "@mui/joy/Avatar";
+import Button from "@mui/joy/Button";
+import Chip from "@mui/joy/Chip";
+import IconButton from "@mui/joy/IconButton";
+import Stack from "@mui/joy/Stack";
+import Typography from "@mui/joy/Typography";
+import CircleIcon from "@mui/icons-material/Circle";
+import ArrowBackIosNewRoundedIcon from "@mui/icons-material/ArrowBackIosNewRounded";
+import PhoneInTalkRoundedIcon from "@mui/icons-material/PhoneInTalkRounded";
+import MoreVertRoundedIcon from "@mui/icons-material/MoreVertRounded";
+import { toggleMessagesPane } from "../../utils";
 
 export default function MessagesPaneHeader(props) {
   const { sender } = props;
@@ -19,9 +18,9 @@ export default function MessagesPaneHeader(props) {
       direction="row"
       justifyContent="space-between"
       sx={{
-        borderBottom: '1px solid',
-        borderColor: 'divider',
-        backgroundColor: 'background.body',
+        borderBottom: "1px solid",
+        borderColor: "divider",
+        backgroundColor: "background.body",
       }}
       py={{ xs: 2, md: 2 }}
       px={{ xs: 1, md: 2 }}
@@ -32,13 +31,13 @@ export default function MessagesPaneHeader(props) {
           color="neutral"
           size="sm"
           sx={{
-            display: { xs: 'inline-flex', sm: 'none' },
+            display: { xs: "inline-flex", sm: "none" },
           }}
           onClick={() => toggleMessagesPane()}
         >
           <ArrowBackIosNewRoundedIcon />
         </IconButton>
-        <Avatar size="lg" src={'/images/llamacactus.png'} />
+        <Avatar size="lg" src={"/images/llamacactus.png"} />
         <div>
           <Typography
             fontWeight="lg"
@@ -52,12 +51,12 @@ export default function MessagesPaneHeader(props) {
                   size="sm"
                   color="neutral"
                   sx={{
-                    borderRadius: 'sm',
+                    borderRadius: "sm",
                   }}
                   startDecorator={
                     <CircleIcon sx={{ fontSize: 8 }} color="success" />
                   }
-                  slotProps={{ root: { component: 'span' } }}
+                  slotProps={{ root: { component: "span" } }}
                 >
                   Online
                 </Chip>
@@ -75,7 +74,7 @@ export default function MessagesPaneHeader(props) {
           variant="outlined"
           size="sm"
           sx={{
-            display: { xs: 'none', md: 'inline-flex' },
+            display: { xs: "none", md: "inline-flex" },
           }}
         >
           View profile
