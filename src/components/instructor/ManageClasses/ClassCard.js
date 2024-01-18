@@ -1,19 +1,28 @@
-import * as React from 'react';
-import {AspectRatio,IconButton,MoreHoriz} from '@mui/joy/';
-import Link from '@mui/joy/Link';
-import Card from '@mui/joy/Card';
-import CardContent from '@mui/joy/CardContent';
-import Chip from '@mui/joy/Chip';
-import Typography from '@mui/joy/Typography';
+import * as React from "react";
+import { AspectRatio, IconButton, MoreHoriz } from "@mui/joy/";
+import Link from "@mui/joy/Link";
+import Card from "@mui/joy/Card";
+import CardContent from "@mui/joy/CardContent";
+import Chip from "@mui/joy/Chip";
+import Typography from "@mui/joy/Typography";
 
-export default function ClassCard({studentCount, courseName, model, courseDescription, courseNote}) {
+export default function ClassCard({
+  studentCount,
+  courseName,
+  model,
+  courseDescription,
+  courseNote,
+}) {
   return (
     <Card
       variant="outlined"
       orientation="horizontal"
       sx={{
-        width:'100%',
-        '&:hover': { boxShadow: 'md', borderColor: 'neutral.outlinedHoverBorder' },
+        width: "100%",
+        "&:hover": {
+          boxShadow: "md",
+          borderColor: "neutral.outlinedHoverBorder",
+        },
       }}
     >
       <CardContent>
@@ -28,26 +37,26 @@ export default function ClassCard({studentCount, courseName, model, courseDescri
             overlay
             underline="none"
             href="#interactive-card"
-            sx={{ color: 'text.tertiary' }}
+            sx={{ color: "text.tertiary" }}
           >
             Students: {studentCount}
           </Link>
         </Typography>
         <Typography level="body-sm" aria-describedby="card-description" mb={1}>
-        <Link
+          <Link
             overlay
             underline="none"
             href="#interactive-card"
-            sx={{ color: 'text.tertiary' }}
+            sx={{ color: "text.tertiary" }}
           >
-           Note: {courseNote}
+            Note: {courseNote}
           </Link>
-          </Typography>
+        </Typography>
         <Chip
           variant="outlined"
           color="primary"
           size="sm"
-          sx={{ pointerEvents: 'none' }}
+          sx={{ pointerEvents: "none" }}
         >
           Model: {model}
         </Chip>

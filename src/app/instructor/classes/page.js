@@ -9,12 +9,12 @@ import Box from "@mui/joy/Box";
 import Classes from "@/components/instructor/ManageClasses/Classes";
 
 export default function Instructor() {
-    return (
-        <CssVarsProvider disableTransitionOnChange>
-            <CssBaseline />
-                <Box component="main" className="MainContent" sx={{ flex: 1 }}>
-                    <Classes />
-                </Box>
-        </CssVarsProvider>
-    );
+  return (
+    <CssVarsProvider disableTransitionOnChange>
+      <CssBaseline />
+      <Box component="main" className="MainContent" sx={{ flex: 1 }}>
+        <Classes />
+      </Box>
+    </CssVarsProvider>
+  );
 }

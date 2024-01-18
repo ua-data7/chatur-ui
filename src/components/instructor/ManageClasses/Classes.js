@@ -16,9 +16,14 @@ export default function Classes() {
       <Layout.Main>
         <Typography level="title-lg">Manage Classes</Typography>
         <Box m={4}>
-          <Grid container spacing={2} sx={{ flexGrow: 1 }} direction="row"
-  justifyContent="flex-start"
-  alignItems="flex-end">
+          <Grid
+            container
+            spacing={2}
+            sx={{ flexGrow: 1 }}
+            direction="row"
+            justifyContent="flex-start"
+            alignItems="flex-end"
+          >
             <Grid>
               <Button>Delete Class</Button>
             </Grid>
@@ -26,37 +31,45 @@ export default function Classes() {
               <Button>Add Class</Button>
             </Grid>
             <Grid>
-              <Link href="/instructor/classes/details"><Button>Edit Class</Button></Link>
+              <Link href="/instructor/classes/details">
+                <Button>Edit Class</Button>
+              </Link>
             </Grid>
           </Grid>
         </Box>
         <Box m={4}>
           <Grid container spacing={2} sx={{ flexGrow: 1 }}>
             <Grid>
-            <Link style={{textDecoration:"none"}} href="/instructor/classes/details">
-              <ClassCard
-                studentCount={30}
-                courseName={"RNR 355"}
-                courseDescription={"Into to Machine Learning"}
-                courseNote={"Tue/Thurs 10am-12pm"}
-                model={"privateGPT"}
-              />
+              <Link
+                style={{ textDecoration: "none" }}
+                href="/instructor/classes/details"
+              >
+                <ClassCard
+                  studentCount={30}
+                  courseName={"RNR 355"}
+                  courseDescription={"Into to Machine Learning"}
+                  courseNote={"Tue/Thurs 10am-12pm"}
+                  model={"privateGPT"}
+                />
               </Link>
             </Grid>
             <Grid>
-            <Link style={{textDecoration:"none"}} href="/instructor/classes/details">
-              <ClassCard
-                studentCount={18}
-                courseName={"CNC 353"}
-                courseDescription={"Into to Machine Learning"}
-                courseNote={"Online"}
-                model={"Mistral"}
-              />
+              <Link
+                style={{ textDecoration: "none" }}
+                href="/instructor/classes/details"
+              >
+                <ClassCard
+                  studentCount={18}
+                  courseName={"CNC 353"}
+                  courseDescription={"Into to Machine Learning"}
+                  courseNote={"Online"}
+                  model={"Mistral"}
+                />
               </Link>
             </Grid>
           </Grid>
         </Box>
-        </Layout.Main>
+      </Layout.Main>
     </Layout.Root>
   );
 }

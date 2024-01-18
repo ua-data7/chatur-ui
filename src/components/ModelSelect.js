@@ -1,5 +1,5 @@
-import Select from '@mui/joy/Select';
-import Option from '@mui/joy/Option';
+import Select from "@mui/joy/Select";
+import Option from "@mui/joy/Option";
 
 export default function ModelSelect() {
   return (
