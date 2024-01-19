@@ -9,7 +9,7 @@ import MessageInput from "./MessageInput";
 export default function MessagesPane(props) {
   const { chat, appendMessage, setPendingChatbotMessage } = props;
   const [chatMessages, setChatMessages] = React.useState(chat.messages);
-  const [textAreaValue, setTextAreaValue] = React.useState("");
+  const [studentMessage, setStudentMessage] = React.useState("");
 
   React.useEffect(() => {
     setChatMessages(chat.messages);
@@ -62,8 +62,8 @@ export default function MessagesPane(props) {
       </Box>
       <MessageInput
         appendMessage={appendMessage}
-        textAreaValue={textAreaValue}
-        setTextAreaValue={setTextAreaValue}
+        studentMessage={studentMessage}
+        setStudentMessage={setStudentMessage}
         setPendingChatbotMessage={setPendingChatbotMessage}
       />
     </Sheet>
