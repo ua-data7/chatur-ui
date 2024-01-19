@@ -1,9 +1,7 @@
 import { NextResponse } from "next/server";
 
 export async function POST(req) {
-  const body = await req.json();
-
-  const apiKey = process.env.CHAT_API_KEY;
+  const requestBody = await req.json();
   const apiUrl = process.env.CHAT_API_URL;
 
   try {
@@ -11,15 +9,14 @@ export async function POST(req) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
-        input: body.message,
+        input: requestBody.message,
       }),
     });
 
     if (!response.ok) {
-      throw new Error("Something went wrong with the chatbot API response.");
+      throw new Error("Something went wrong with the chatbot.");
     }
 
     const responseBody = await response.json();

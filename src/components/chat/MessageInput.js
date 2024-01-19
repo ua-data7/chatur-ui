@@ -33,8 +33,8 @@ export default function MessageInput(props) {
           body: JSON.stringify(params),
         });
 
-        const data = await response.json();
-        setPendingChatbotMessage(data.output);
+        const responseBody = await response.json();
+        setPendingChatbotMessage(responseBody.output);
       }
     } catch (error) {
       setError(error.message);
