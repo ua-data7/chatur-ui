@@ -8,8 +8,8 @@ import SendRoundedIcon from "@mui/icons-material/SendRounded";
 
 export default function MessageInput(props) {
   const {
-    textAreaValue,
-    setTextAreaValue,
+    studentMessage,
+    setStudentMessage,
     appendMessage,
     setPendingChatbotMessage,
   } = props;
@@ -18,35 +18,23 @@ export default function MessageInput(props) {
 
   const handleChatbotResponse = async () => {
     try {
-      if (textAreaValue.trim() !== "") {
+      if (studentMessage.trim() !== "") {
         setIsLoading(true);
 
-        // Replace 'YOUR_API_KEY' with the actual API key
-        const apiKey = process.env.NEXT_PUBLIC_CHAT_API_KEY;
-        const apiUrl = process.env.NEXT_PUBLIC_CHAT_API_URL;
+        const params = {
+          message: studentMessage,
+        };
 
-        // Replace 'YOUR_MODEL_NAME' with the actual model name
-        const modelName = "Mistral-7B-OpenOrca";
-
-        const response = await fetch(apiUrl, {
+        const response = await fetch("/api/chat", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${apiKey}`,
           },
-          body: JSON.stringify({
-            model: modelName,
-            messages: [{ role: "user", content: textAreaValue }],
-          }),
+          body: JSON.stringify(params),
         });
 
-        if (!response.ok) {
-          throw new Error("Failed to send message");
-        }
-
-        // Set the API response to display in the chat
-        const responseBody = await response.json();
-        setPendingChatbotMessage(responseBody.choices[0].message.content);
+        const data = await response.json();
+        setPendingChatbotMessage(data.output);
       }
     } catch (error) {
       setError(error.message);
@@ -56,9 +44,9 @@ export default function MessageInput(props) {
   };
 
   const handleClick = async () => {
-    appendMessage(textAreaValue, "You");
+    appendMessage(studentMessage, "You");
     // Clear the text area after submitting
-    setTextAreaValue("");
+    setStudentMessage("");
     handleChatbotResponse();
   };
 
@@ -69,9 +57,9 @@ export default function MessageInput(props) {
           placeholder="Type something here…"
           aria-label="Message"
           onChange={(e) => {
-            setTextAreaValue(e.target.value);
+            setStudentMessage(e.target.value);
           }}
-          value={textAreaValue}
+          value={studentMessage}
           minRows={3}
           maxRows={10}
           endDecorator={
