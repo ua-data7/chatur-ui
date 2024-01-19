@@ -1,8 +1,17 @@
 import { NextResponse } from "next/server";
+import { headers } from "next/headers";
 
 export async function POST(req) {
   const requestBody = await req.json();
   const apiUrl = process.env.CHAT_API_URL;
+  const headersList = headers();
+  // apisix openid-connect plugin will pass in a base64 encoded json string of the userinfo
+  const userInfoHeader = headersList.get("X-Userinfo");
+
+  console.log(req.method, req.url);
+  if (userInfoHeader) {
+    console.log("userInfo", parseBase64UserInfo(userInfoHeader));
+  }
 
   try {
     const response = await fetch(apiUrl, {
@@ -24,4 +33,9 @@ export async function POST(req) {
   } catch (error) {
     return NextResponse.json({ error: error.message, status: 500 });
   }
+}
+
+function parseBase64UserInfo(base64) {
+  const binString = atob(base64);
+  return JSON.parse(binString);
 }
