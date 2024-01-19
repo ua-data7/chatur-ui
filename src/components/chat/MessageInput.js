@@ -14,7 +14,6 @@ export default function MessageInput(props) {
     setPendingChatbotMessage,
   } = props;
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
 
   const handleChatbotResponse = async () => {
     try {
@@ -34,10 +33,15 @@ export default function MessageInput(props) {
         });
 
         const responseBody = await response.json();
-        setPendingChatbotMessage(responseBody.output);
+
+        if (responseBody.error) {
+          setPendingChatbotMessage(responseBody.error);
+        } else {
+          setPendingChatbotMessage(responseBody.output);
+        }
       }
     } catch (error) {
-      setError(error.message);
+      setPendingChatbotMessage("Something went wrong, please try again.");
     } finally {
       setIsLoading(false);
     }

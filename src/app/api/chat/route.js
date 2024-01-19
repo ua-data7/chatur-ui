@@ -16,12 +16,12 @@ export async function POST(req) {
     });
 
     if (!response.ok) {
-      throw new Error("Something went wrong with the chatbot.");
+      throw new Error("Something went wrong, please try again.");
     }
 
     const responseBody = await response.json();
     return NextResponse.json({ output: responseBody.output });
-  } catch (err) {
-    return NextResponse.json({ error: err }, { status: 500 });
+  } catch (error) {
+    return NextResponse.json({ error: error.message, status: 500 });
   }
 }
