@@ -8,6 +8,7 @@ import Typography from "@mui/joy/Typography";
 import CelebrationOutlinedIcon from "@mui/icons-material/CelebrationOutlined";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import InsertDriveFileRoundedIcon from "@mui/icons-material/InsertDriveFileRounded";
+import ChatMessage from "./ChatMessage";
 
 export default function ChatBubble(props) {
   const { message, timestamp, sender, variant, attachment } = props;
@@ -30,11 +31,10 @@ export default function ChatBubble(props) {
         <Typography level="body-xs">
           {new Date(timestamp).toLocaleDateString("en-US", {
             year: "numeric",
-            month: "long",
+            month: "short",
             day: "numeric",
-            hour: "2-digit",
+            hour: "numeric",
             minute: "2-digit",
-            second: "2-digit",
           })}
         </Typography>
       </Stack>
@@ -69,7 +69,8 @@ export default function ChatBubble(props) {
             color={isSent ? "primary" : "neutral"}
             variant={isSent ? "solid" : "soft"}
             sx={{
-              p: 1.25,
+              px: 2,
+              py: 0.1,
               borderRadius: "lg",
               borderTopRightRadius: isSent ? 0 : "lg",
               borderTopLeftRadius: isSent ? "lg" : 0,
@@ -78,16 +79,7 @@ export default function ChatBubble(props) {
                 : "background.body",
             }}
           >
-            <Typography
-              level="body-sm"
-              sx={{
-                color: isSent
-                  ? "var(--joy-palette-common-white)"
-                  : "var(--joy-palette-text-primary)",
-              }}
-            >
-              {message}
-            </Typography>
+            <ChatMessage message={message}></ChatMessage>
           </Sheet>
           {(isHovered || isLiked || isCelebrated) && (
             <Stack

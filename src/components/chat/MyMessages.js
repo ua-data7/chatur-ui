@@ -56,15 +56,16 @@ export default function MyProfile() {
         flex: 1,
         width: "100%",
         mx: "auto",
-        pt: { xs: "var(--Header-height)", sm: 0 },
+        // pt: { xs: "var(--Header-height)", sm: 0 },
         display: "grid",
         gridTemplateColumns: {
           xs: "1fr",
-          sm: "minmax(min-content, min(30%, 400px)) 1fr",
+          // sm: "minmax(min-content, min(30%, 400px)) 1fr",
+          sm: "1fr",
         },
       }}
     >
-      <Sheet
+      {/* <Sheet
         sx={{
           position: { xs: "fixed", sm: "sticky" },
           transform: {
@@ -82,7 +83,7 @@ export default function MyProfile() {
           selectedChatId={selectedChat.id}
           appendMessage={appendMessage}
         />
-      </Sheet>
+      </Sheet> */}
       <MessagesPane
         chat={selectedChat}
         appendMessage={appendMessage}
