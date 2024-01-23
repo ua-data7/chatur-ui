@@ -17,6 +17,8 @@ import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
 import ColorSchemeToggle from "./ColorSchemeToggle";
 import { closeSidebar } from "../../utils";
 
+import { useSelectedCourse } from "@/contexts/CourseContext";
+
 function Toggler(props) {
   const { defaultExpanded = false, renderToggle, children } = props;
   const [open, setOpen] = React.useState(defaultExpanded);
@@ -40,6 +42,8 @@ function Toggler(props) {
 }
 
 export default function Sidebar() {
+  const courseContext = useSelectedCourse();
+
   return (
     <Sheet
       className="Sidebar"
@@ -97,7 +101,6 @@ export default function Sidebar() {
         <Typography level="title-lg">Chatur</Typography>
         <ColorSchemeToggle sx={{ ml: "auto" }} />
       </Box>
-      {/* <Input size="sm" startDecorator={<SearchRoundedIcon />} placeholder="Search" /> */}
       <Divider />
       <Typography level="title-md">My Courses</Typography>
 
@@ -121,23 +124,21 @@ export default function Sidebar() {
             "--ListItem-radius": (theme) => theme.vars.radius.sm,
           }}
         >
-          <ListItem>
-            <ListItemButton>
-              {/* <HomeRoundedIcon /> */}
-              <ListItemContent>
-                <Typography level="title-sm">CSC 335</Typography>
-              </ListItemContent>
-            </ListItemButton>
-          </ListItem>
-
-          <ListItem>
-            <ListItemButton>
-              {/* <HomeRoundedIcon /> */}
-              <ListItemContent>
-                <Typography level="title-sm">RNR 355</Typography>
-              </ListItemContent>
-            </ListItemButton>
-          </ListItem>
+          {courseContext.courses.map((course) => (
+            <ListItem key={course.id}>
+              <ListItemButton
+                onClick={() => courseContext.updateSelectedCourse(course)}
+                selected={course.id === courseContext.selectedCourse.id}
+              >
+                {/* <HomeRoundedIcon /> */}
+                <ListItemContent>
+                  <Typography level="title-sm">
+                    {course.id}: {course.name}
+                  </Typography>
+                </ListItemContent>
+              </ListItemButton>
+            </ListItem>
+          ))}
         </List>
         <List
           size="sm"

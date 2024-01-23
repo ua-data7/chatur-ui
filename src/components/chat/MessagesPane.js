@@ -5,6 +5,7 @@ import Stack from "@mui/joy/Stack";
 import AvatarWithStatus from "./AvatarWithStatus";
 import ChatBubble from "./ChatBubble";
 import MessageInput from "./MessageInput";
+import MessagesPaneHeader from "./MessagesPaneHeader";
 
 export default function MessagesPane(props) {
   const { chat, appendMessage, setPendingChatbotMessage } = props;
@@ -18,12 +19,13 @@ export default function MessagesPane(props) {
   return (
     <Sheet
       sx={{
-        height: { xs: "calc(100dvh - var(--Header-height))", lg: "100dvh" },
+        height: "100dvh",
         display: "flex",
         flexDirection: "column",
         backgroundColor: "background.level1",
       }}
     >
+      <MessagesPaneHeader />
       <Box
         sx={{
           display: "flex",
