@@ -5,20 +5,25 @@ import { CssVarsProvider } from "@mui/joy/styles";
 import CssBaseline from "@mui/joy/CssBaseline";
 import Box from "@mui/joy/Box";
 import Sidebar from "@/components/chat/Sidebar";
-import Header from "@/components/chat/Header";
-import MyMessages from "@/components/chat/MyMessages";
+
+import ChatContainer from "@/components/chat/ChatContainer";
+import { CourseProvider } from "@/contexts/courses/CourseContext";
+import { ChatProvider } from "@/contexts/chat/ChatContext";
 
 export default function Student() {
   return (
     <CssVarsProvider disableTransitionOnChange>
       <CssBaseline />
-      <Box sx={{ display: "flex", minHeight: "100dvh" }}>
-        <Sidebar />
-        <Header />
-        <Box component="main" className="MainContent" sx={{ flex: 1 }}>
-          <MyMessages />
+      <CourseProvider>
+        <Box sx={{ display: "flex", minHeight: "100dvh" }}>
+          <Sidebar />
+          <Box component="main" className="MainContent" sx={{ flex: 1 }}>
+            <ChatProvider>
+              <ChatContainer />
+            </ChatProvider>
+          </Box>
         </Box>
-      </Box>
+      </CourseProvider>
     </CssVarsProvider>
   );
 }

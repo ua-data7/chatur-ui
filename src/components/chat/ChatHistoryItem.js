@@ -2,24 +2,22 @@ import * as React from "react";
 import Box from "@mui/joy/Box";
 import ListDivider from "@mui/joy/ListDivider";
 import ListItem from "@mui/joy/ListItem";
-import ListItemButton, { ListItemButtonProps } from "@mui/joy/ListItemButton";
+import ListItemButton from "@mui/joy/ListItemButton";
 import Stack from "@mui/joy/Stack";
 import Typography from "@mui/joy/Typography";
 import CircleIcon from "@mui/icons-material/Circle";
-import AvatarWithStatus from "./AvatarWithStatus";
 import { toggleMessagesPane } from "../../utils";
 
-export default function ChatHistoryListItem(props) {
-  const { id, summary, messages, selectedHistoryId, setSelectedHistory } =
-    props;
-  const selected = selectedHistoryId === id;
+export default function ChatListItem(props) {
+  const { id, sender, messages, selectedChatId, setSelectedChat } = props;
+  const selected = selectedChatId === id;
   return (
     <React.Fragment>
       <ListItem>
         <ListItemButton
           onClick={() => {
             toggleMessagesPane();
-            setSelectedHistory({ id, messages });
+            setSelectedChat({ id, sender, messages });
           }}
           selected={selected}
           color="neutral"
@@ -30,7 +28,27 @@ export default function ChatHistoryListItem(props) {
           }}
         >
           <Stack direction="row" spacing={1.5}>
-            {summary}
+            <Box sx={{ flex: 1 }}>
+              <Typography level="title-sm">{sender.name}</Typography>
+              <Typography level="body-sm">{sender.username}</Typography>
+            </Box>
+            <Box
+              sx={{
+                lineHeight: 1.5,
+                textAlign: "right",
+              }}
+            >
+              {messages[0]?.unread && (
+                <CircleIcon sx={{ fontSize: 12 }} color="primary" />
+              )}
+              <Typography
+                level="body-xs"
+                display={{ xs: "none", md: "block" }}
+                noWrap
+              >
+                5 mins ago
+              </Typography>
+            </Box>
           </Stack>
           <Typography
             level="body-sm"
@@ -42,7 +60,7 @@ export default function ChatHistoryListItem(props) {
               textOverflow: "ellipsis",
             }}
           >
-            {messages[0].content}
+            {messages[0]?.content}
           </Typography>
         </ListItemButton>
       </ListItem>

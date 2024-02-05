@@ -25,9 +25,7 @@ export default function ChatBubble(props) {
         spacing={2}
         sx={{ mb: 0.25 }}
       >
-        <Typography level="body-xs">
-          {sender === "You" ? sender : sender.name}
-        </Typography>
+        <Typography level="body-xs">{sender}</Typography>
         <Typography level="body-xs">
           {new Date(timestamp).toLocaleDateString("en-US", {
             year: "numeric",

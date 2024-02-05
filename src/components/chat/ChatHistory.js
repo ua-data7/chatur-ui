@@ -1,18 +1,23 @@
 import * as React from "react";
+
+import Box from "@mui/joy/Box";
+import Chip from "@mui/joy/Chip";
+import IconButton from "@mui/joy/IconButton";
+import Input from "@mui/joy/Input";
+import List from "@mui/joy/List";
 import Stack from "@mui/joy/Stack";
 import Sheet from "@mui/joy/Sheet";
 import Typography from "@mui/joy/Typography";
-import { Box, Chip, IconButton, Input } from "@mui/joy";
-import List from "@mui/joy/List";
+
 import EditNoteRoundedIcon from "@mui/icons-material/EditNoteRounded";
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
-import ChatListItem from "./ChatListItem";
-import ChatHistoryListItem from "./ChatHistoryListItem";
+
+import ChatListItem from "./ChatHistoryItem";
 import { toggleMessagesPane } from "../../utils";
 
-export default function HistoryPane(props) {
-  const { histories, setSelectedHistory, selectedHistoryId } = props;
+export default function ChatHistory(props) {
+  const { chats, setSelectedChat, selectedChatId } = props;
   return (
     <Sheet
       sx={{
@@ -41,7 +46,7 @@ export default function HistoryPane(props) {
               size="md"
               slotProps={{ root: { component: "span" } }}
             >
-              12
+              4
             </Chip>
           }
           sx={{ mr: "auto" }}
@@ -85,12 +90,12 @@ export default function HistoryPane(props) {
           "--ListItem-paddingX": "1rem",
         }}
       >
-        {histories.map((history) => (
-          <ChatHistoryListItem
-            key={history.id}
-            {...history}
-            setSelectedHistory={setSelectedHistory}
-            selectedHistoryId={selectedHistoryId}
+        {chats.map((chat) => (
+          <ChatListItem
+            key={chat.id}
+            {...chat}
+            setSelectedChat={setSelectedChat}
+            selectedChatId={selectedChatId}
           />
         ))}
       </List>
