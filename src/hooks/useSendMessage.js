@@ -29,12 +29,12 @@ export const useSendMessage = () => {
       }
 
       // Additional logic based on sender
-      if (sender === "Chatur") {
-        dispatch(setPendingChatbotMessage(null));
-        dispatch(setPendingCourseId(null));
-      } else if (sender === "You") {
+      if (sender === "You") {
         dispatch(setStudentMessageAppended(true));
         dispatch(setPendingCourseId(courseId));
+      } else if (sender === "Chatur") {
+        dispatch(setPendingChatbotMessage(null));
+        dispatch(setPendingCourseId(null));
       }
     },
     [dispatch, state.chats],

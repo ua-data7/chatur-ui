@@ -1,5 +1,3 @@
-// courseActions.js
-
 // Action Types
 export const INIT_CHAT_SESSION = "INIT_CHAT_SESSION";
 export const APPEND_MESSAGE = "APPEND_MESSAGE";

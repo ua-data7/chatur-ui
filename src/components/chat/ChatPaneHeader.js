@@ -7,7 +7,7 @@ import MoreVertRoundedIcon from "@mui/icons-material/MoreVertRounded";
 import { useCourses } from "@/contexts/courses/CourseContext";
 import { toggleSidebar } from "../../utils";
 
-export default function MessagesPaneHeader(props) {
+export default function ChatPaneHeader(props) {
   const { selectedCourse } = useCourses();
   return (
     <Stack

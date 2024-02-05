@@ -1,18 +1,20 @@
 import * as React from "react";
+import Avatar from "@mui/joy/Avatar";
 import Box from "@mui/joy/Box";
 import Sheet from "@mui/joy/Sheet";
 import Stack from "@mui/joy/Stack";
-import AvatarWithStatus from "./AvatarWithStatus";
+
 import ChatBubble from "./ChatBubble";
-import MessageInput from "./MessageInput";
-import MessagesPaneHeader from "./MessagesPaneHeader";
+import ChatInput from "./ChatInput";
+import ChatPaneHeader from "./ChatPaneHeader";
+
 import { useChats } from "@/contexts/chat/ChatContext";
 import { useCourses } from "@/contexts/courses/CourseContext";
 
-export default function MessagesPane(props) {
+export default function MessagesPane() {
   const { state } = useChats();
-  const { selectedCourse } = useCourses();
   const { chats } = state;
+  const { selectedCourse } = useCourses();
 
   return (
     <Sheet
@@ -23,7 +25,7 @@ export default function MessagesPane(props) {
         backgroundColor: "background.level1",
       }}
     >
-      <MessagesPaneHeader />
+      <ChatPaneHeader />
       <Box
         sx={{
           display: "flex",
@@ -47,10 +49,7 @@ export default function MessagesPane(props) {
                   flexDirection={isYou ? "row-reverse" : "row"}
                 >
                   {message.sender !== "You" && (
-                    <AvatarWithStatus
-                      online={message.sender.online}
-                      src={message.sender.avatar}
-                    />
+                    <Avatar src={"images/llamacactus.png"} />
                   )}
                   <ChatBubble
                     variant={isYou ? "sent" : "received"}
@@ -61,7 +60,7 @@ export default function MessagesPane(props) {
             })}
         </Stack>
       </Box>
-      <MessageInput />
+      <ChatInput />
     </Sheet>
   );
 }

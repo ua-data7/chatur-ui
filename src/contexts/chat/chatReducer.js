@@ -1,4 +1,3 @@
-// chatReducer.js
 import {
   INIT_CHAT_SESSION,
   APPEND_MESSAGE,

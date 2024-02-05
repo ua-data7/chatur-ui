@@ -5,7 +5,8 @@ import { CssVarsProvider } from "@mui/joy/styles";
 import CssBaseline from "@mui/joy/CssBaseline";
 import Box from "@mui/joy/Box";
 import Sidebar from "@/components/chat/Sidebar";
-import MyMessages from "@/components/chat/MyMessages";
+
+import ChatContainer from "@/components/chat/ChatContainer";
 import { CourseProvider } from "@/contexts/courses/CourseContext";
 import { ChatProvider } from "@/contexts/chat/ChatContext";
 
@@ -18,7 +19,7 @@ export default function Student() {
           <Sidebar />
           <Box component="main" className="MainContent" sx={{ flex: 1 }}>
             <ChatProvider>
-              <MyMessages />
+              <ChatContainer />
             </ChatProvider>
           </Box>
         </Box>

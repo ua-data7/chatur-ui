@@ -1,23 +1,28 @@
-import React, { useState, createContext, useContext } from "react";
+import React, { createContext, useState, useContext, useMemo } from "react";
 import { courses as courseList } from "@/contexts/courses/courses";
 
 // Context for currently selected course
-const CourseContext = createContext();
+const CourseContext = createContext({
+  selectedCourse: null,
+  setSelectedCourse: () => {},
+  courses: [],
+});
 
 export const CourseProvider = ({ children }) => {
   const [selectedCourse, setSelectedCourse] = useState(courseList[0]);
-  const [courses, setCourses] = useState(courseList);
+  const [courses] = useState(courseList);
 
-  const updateSelectedCourse = (course) => {
-    setSelectedCourse(course);
-  };
+  const value = useMemo(
+    () => ({
+      selectedCourse,
+      setSelectedCourse,
+      courses,
+    }),
+    [selectedCourse, courses],
+  );
 
   return (
-    <CourseContext.Provider
-      value={{ selectedCourse, updateSelectedCourse, courses, setCourses }}
-    >
-      {children}
-    </CourseContext.Provider>
+    <CourseContext.Provider value={value}>{children}</CourseContext.Provider>
   );
 };
 
@@ -25,7 +30,7 @@ export const CourseProvider = ({ children }) => {
 export const useCourses = () => {
   const context = useContext(CourseContext);
   if (context === undefined) {
-    throw new Error("useCourses must be used within a SelectedCourseProvider");
+    throw new Error("useCourses must be used within a CourseProvider");
   }
   return context;
 };

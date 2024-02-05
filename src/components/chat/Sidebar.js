@@ -127,7 +127,7 @@ export default function Sidebar() {
           {courseContext.courses.map((course) => (
             <ListItem key={course.id}>
               <ListItemButton
-                onClick={() => courseContext.updateSelectedCourse(course)}
+                onClick={() => courseContext.setSelectedCourse(course)}
                 selected={course.id === courseContext.selectedCourse.id}
               >
                 {/* <HomeRoundedIcon /> */}
