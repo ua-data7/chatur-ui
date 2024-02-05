@@ -1,28 +1,32 @@
+import React, { useState } from "react";
+
 import Box from "@mui/joy/Box";
 import Button from "@mui/joy/Button";
 import FormControl from "@mui/joy/FormControl";
+import Stack from "@mui/joy/Stack";
 import Textarea from "@mui/joy/Textarea";
-import { Stack } from "@mui/joy";
-import React, { useState } from "react";
 import SendRoundedIcon from "@mui/icons-material/SendRounded";
-import { useCourses } from "@/contexts/courses/CourseContext";
-import { useChats } from "@/contexts/chat/ChatContext";
 
+import { useChats } from "@/contexts/chat/ChatContext";
+import { useCourses } from "@/contexts/courses/CourseContext";
+import { useSendMessage } from "@/hooks/useSendMessage";
 import { setPendingChatbotMessage } from "@/contexts/chat/chatActions";
 
 export default function MessageInput() {
-  const [isLoading, setIsLoading] = useState(false);
-  const [studentMessage, setStudentMessage] = useState("");
-  const { sendMessage, dispatch } = useChats();
+  const { state, dispatch } = useChats();
   const { selectedCourse } = useCourses();
+  const sendMessage = useSendMessage();
+
+  const [isLoading, setIsLoading] = useState(false);
+  const [userInput, setUserInput] = useState("");
 
   const handleChatbotResponse = async () => {
     try {
-      if (studentMessage.trim() !== "") {
+      if (userInput.trim() !== "") {
         setIsLoading(true);
 
         const params = {
-          message: studentMessage,
+          message: userInput,
         };
 
         const response = await fetch("/api/chat", {
@@ -36,27 +40,34 @@ export default function MessageInput() {
         const responseBody = await response.json();
 
         if (responseBody.error) {
-          setPendingChatbotMessage(dispatch, responseBody.error);
+          dispatch(setPendingChatbotMessage(responseBody.error));
         } else {
-          setPendingChatbotMessage(dispatch, responseBody.output);
+          dispatch(setPendingChatbotMessage(responseBody.output));
         }
       }
     } catch (error) {
-      setPendingChatbotMessage(
-        dispatch,
-        "Something went wrong, please try again.",
-      );
+      dispatch(setPendingChatbotMessage(`Error: ${error.message}`));
     } finally {
       setIsLoading(false);
     }
   };
 
   const handleClick = async () => {
-    sendMessage(selectedCourse.id, studentMessage, "You");
+    sendMessage(selectedCourse.id, userInput, "You");
     // Clear the text area after submitting
-    setStudentMessage("");
+    setUserInput("");
     handleChatbotResponse();
   };
+
+  React.useEffect(() => {
+    if (state.studentMessageAppended && state.pendingChatbotMessage) {
+      sendMessage(state.pendingCourseId, state.pendingChatbotMessage, "Chatur");
+    }
+  }, [
+    state.studentMessageAppended,
+    state.pendingChatbotMessage,
+    state.pendingCourseId,
+  ]);
 
   return (
     <Box sx={{ px: 2, pb: 3 }}>
@@ -65,9 +76,9 @@ export default function MessageInput() {
           placeholder="Type something here…"
           aria-label="Message"
           onChange={(e) => {
-            setStudentMessage(e.target.value);
+            setUserInput(e.target.value);
           }}
-          value={studentMessage}
+          value={userInput}
           minRows={3}
           maxRows={10}
           endDecorator={
