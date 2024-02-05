@@ -5,15 +5,16 @@ import Textarea from "@mui/joy/Textarea";
 import { Stack } from "@mui/joy";
 import React, { useState } from "react";
 import SendRoundedIcon from "@mui/icons-material/SendRounded";
+import { useCourses } from "@/contexts/courses/CourseContext";
+import { useChats } from "@/contexts/chat/ChatContext";
 
-export default function MessageInput(props) {
-  const {
-    studentMessage,
-    setStudentMessage,
-    appendMessage,
-    setPendingChatbotMessage,
-  } = props;
+import { setPendingChatbotMessage } from "@/contexts/chat/chatActions";
+
+export default function MessageInput() {
   const [isLoading, setIsLoading] = useState(false);
+  const [studentMessage, setStudentMessage] = useState("");
+  const { sendMessage, dispatch } = useChats();
+  const { selectedCourse } = useCourses();
 
   const handleChatbotResponse = async () => {
     try {
@@ -35,20 +36,23 @@ export default function MessageInput(props) {
         const responseBody = await response.json();
 
         if (responseBody.error) {
-          setPendingChatbotMessage(responseBody.error);
+          setPendingChatbotMessage(dispatch, responseBody.error);
         } else {
-          setPendingChatbotMessage(responseBody.output);
+          setPendingChatbotMessage(dispatch, responseBody.output);
         }
       }
     } catch (error) {
-      setPendingChatbotMessage("Something went wrong, please try again.");
+      setPendingChatbotMessage(
+        dispatch,
+        "Something went wrong, please try again.",
+      );
     } finally {
       setIsLoading(false);
     }
   };
 
   const handleClick = async () => {
-    appendMessage(studentMessage, "You");
+    sendMessage(selectedCourse.id, studentMessage, "You");
     // Clear the text area after submitting
     setStudentMessage("");
     handleChatbotResponse();

@@ -1,5 +1,5 @@
 import React, { useState, createContext, useContext } from "react";
-import { courses as courseList } from "@/contexts/courses";
+import { courses as courseList } from "@/contexts/courses/courses";
 
 // Context for currently selected course
 const CourseContext = createContext();
@@ -22,11 +22,11 @@ export const CourseProvider = ({ children }) => {
 };
 
 // Custom hook for using the CourseContext
-export const useSelectedCourse = () => {
+export const useCourses = () => {
   const context = useContext(CourseContext);
   if (context === undefined) {
     throw new Error(
-      "useSelectedCourse must be used within a SelectedCourseProvider",
+      "useCourses must be used within a SelectedCourseProvider",
     );
   }
   return context;

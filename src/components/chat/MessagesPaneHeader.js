@@ -4,11 +4,11 @@ import Stack from "@mui/joy/Stack";
 import Typography from "@mui/joy/Typography";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import MoreVertRoundedIcon from "@mui/icons-material/MoreVertRounded";
-import { useSelectedCourse } from "@/contexts/CourseContext";
+import { useCourses } from "@/contexts/courses/CourseContext";
 import { toggleSidebar } from "../../utils";
 
 export default function MessagesPaneHeader(props) {
-  const { selectedCourse } = useSelectedCourse();
+  const { selectedCourse } = useCourses();
   return (
     <Stack
       direction="row"

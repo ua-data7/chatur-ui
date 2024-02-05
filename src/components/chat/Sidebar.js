@@ -17,7 +17,7 @@ import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
 import ColorSchemeToggle from "./ColorSchemeToggle";
 import { closeSidebar } from "../../utils";
 
-import { useSelectedCourse } from "@/contexts/CourseContext";
+import { useCourses } from "@/contexts/courses/CourseContext";
 
 function Toggler(props) {
   const { defaultExpanded = false, renderToggle, children } = props;
@@ -42,7 +42,7 @@ function Toggler(props) {
 }
 
 export default function Sidebar() {
-  const courseContext = useSelectedCourse();
+  const courseContext = useCourses();
 
   return (
     <Sheet

@@ -6,7 +6,8 @@ import CssBaseline from "@mui/joy/CssBaseline";
 import Box from "@mui/joy/Box";
 import Sidebar from "@/components/chat/Sidebar";
 import MyMessages from "@/components/chat/MyMessages";
-import { CourseProvider } from "@/contexts/CourseContext";
+import { CourseProvider } from "@/contexts/courses/CourseContext";
+import { ChatProvider } from "@/contexts/chat/ChatContext";
 
 export default function Student() {
   return (
@@ -16,7 +17,9 @@ export default function Student() {
         <Box sx={{ display: "flex", minHeight: "100dvh" }}>
           <Sidebar />
           <Box component="main" className="MainContent" sx={{ flex: 1 }}>
-            <MyMessages />
+            <ChatProvider>
+              <MyMessages />
+            </ChatProvider>
           </Box>
         </Box>
       </CourseProvider>

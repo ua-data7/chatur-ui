@@ -6,15 +6,13 @@ import AvatarWithStatus from "./AvatarWithStatus";
 import ChatBubble from "./ChatBubble";
 import MessageInput from "./MessageInput";
 import MessagesPaneHeader from "./MessagesPaneHeader";
+import { useChats } from "@/contexts/chat/ChatContext";
+import { useCourses } from "@/contexts/courses/CourseContext";
 
 export default function MessagesPane(props) {
-  const { chat, appendMessage, setPendingChatbotMessage } = props;
-  const [chatMessages, setChatMessages] = React.useState(chat.messages);
-  const [studentMessage, setStudentMessage] = React.useState("");
-
-  React.useEffect(() => {
-    setChatMessages(chat.messages);
-  }, [chat.messages]);
+  const { state } = useChats();
+  const { selectedCourse } = useCourses();
+  const { chats } = state;
 
   return (
     <Sheet
@@ -38,36 +36,32 @@ export default function MessagesPane(props) {
         }}
       >
         <Stack spacing={2} justifyContent="flex-end">
-          {chatMessages.map((message, index) => {
-            const isYou = message.sender === "You";
-            return (
-              <Stack
-                key={index}
-                direction="row"
-                spacing={2}
-                flexDirection={isYou ? "row-reverse" : "row"}
-              >
-                {message.sender !== "You" && (
-                  <AvatarWithStatus
-                    online={message.sender.online}
-                    src={message.sender.avatar}
+          {selectedCourse.id in state.chats &&
+            chats[selectedCourse.id].messages?.map((message, index) => {
+              const isYou = message.sender === "You";
+              return (
+                <Stack
+                  key={index}
+                  direction="row"
+                  spacing={2}
+                  flexDirection={isYou ? "row-reverse" : "row"}
+                >
+                  {message.sender !== "You" && (
+                    <AvatarWithStatus
+                      online={message.sender.online}
+                      src={message.sender.avatar}
+                    />
+                  )}
+                  <ChatBubble
+                    variant={isYou ? "sent" : "received"}
+                    {...message}
                   />
-                )}
-                <ChatBubble
-                  variant={isYou ? "sent" : "received"}
-                  {...message}
-                />
-              </Stack>
-            );
-          })}
+                </Stack>
+              );
+            })}
         </Stack>
       </Box>
-      <MessageInput
-        appendMessage={appendMessage}
-        studentMessage={studentMessage}
-        setStudentMessage={setStudentMessage}
-        setPendingChatbotMessage={setPendingChatbotMessage}
-      />
+      <MessageInput />
     </Sheet>
   );
 }
