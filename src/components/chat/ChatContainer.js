@@ -2,7 +2,7 @@ import React from "react";
 import Sheet from "@mui/joy/Sheet";
 import ChatPane from "./ChatPane";
 
-export default function Chat() {
+export default function ChatContainer() {
   return (
     <Sheet
       sx={{

@@ -1,5 +1,11 @@
-import React, { createContext, useState, useContext, useMemo } from "react";
-import { courses as courseList } from "@/contexts/courses/courses";
+import React, {
+  createContext,
+  useEffect,
+  useState,
+  useContext,
+  useMemo,
+} from "react";
+import useFetchCourses from "@/hooks/useFetchCourses";
 
 // Context for currently selected course
 const CourseContext = createContext({
@@ -9,16 +15,25 @@ const CourseContext = createContext({
 });
 
 export const CourseProvider = ({ children }) => {
-  const [selectedCourse, setSelectedCourse] = useState(courseList[0]);
-  const [courses] = useState(courseList);
+  const { courses, loading, error } = useFetchCourses();
+  const [selectedCourse, setSelectedCourse] = useState(null);
+
+  // Set the selected course once courses are loaded
+  useEffect(() => {
+    if (!loading && courses.length > 0) {
+      setSelectedCourse(courses[0]);
+    }
+  }, [courses, loading]);
 
   const value = useMemo(
     () => ({
       selectedCourse,
       setSelectedCourse,
       courses,
+      loading,
+      error,
     }),
-    [selectedCourse, courses],
+    [selectedCourse, courses, loading, error],
   );
 
   return (

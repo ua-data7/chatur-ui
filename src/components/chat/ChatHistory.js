@@ -14,7 +14,7 @@ import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 
 import ChatListItem from "./ChatHistoryItem";
-import { toggleMessagesPane } from "../../utils";
+import { toggleMessagesPane } from "../../utils/layoutUtils";
 
 export default function ChatHistory(props) {
   const { chats, setSelectedChat, selectedChatId } = props;

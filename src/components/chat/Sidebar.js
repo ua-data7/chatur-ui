@@ -8,16 +8,20 @@ import List from "@mui/joy/List";
 import ListItem from "@mui/joy/ListItem";
 import ListItemButton, { listItemButtonClasses } from "@mui/joy/ListItemButton";
 import ListItemContent from "@mui/joy/ListItemContent";
-import Typography from "@mui/joy/Typography";
 import Sheet from "@mui/joy/Sheet";
+import Skeleton from "@mui/joy/Skeleton";
+import Stack from "@mui/joy/Stack";
+import Typography from "@mui/joy/Typography";
+
 import SupportRoundedIcon from "@mui/icons-material/SupportRounded";
 import SettingsRoundedIcon from "@mui/icons-material/SettingsRounded";
 import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
 
 import ColorSchemeToggle from "./ColorSchemeToggle";
-import { closeSidebar } from "../../utils";
+import { closeSidebar } from "../../utils/layoutUtils";
 
 import { useCourses } from "@/contexts/courses/CourseContext";
+import { formatCourseId } from "@/utils/courseUtils";
 
 function Toggler(props) {
   const { defaultExpanded = false, renderToggle, children } = props;
@@ -41,8 +45,29 @@ function Toggler(props) {
   );
 }
 
+// Skeleton loader for courses
+const renderCourseSkeletons = () => {
+  return Array.from(new Array(3)).map((_, index) => (
+    <Stack key={index} spacing={1} m={1}>
+      <Skeleton
+        variant="rectangular"
+        width="100%"
+        height={12}
+        animation="wave"
+      />
+      <Skeleton
+        variant="rectangular"
+        width="80%"
+        height={12}
+        animation="wave"
+      />
+    </Stack>
+  ));
+};
+
 export default function Sidebar() {
-  const courseContext = useCourses();
+  const { selectedCourse, setSelectedCourse, courses, loading, error } =
+    useCourses();
 
   return (
     <Sheet
@@ -103,7 +128,6 @@ export default function Sidebar() {
       </Box>
       <Divider />
       <Typography level="title-md">My Courses</Typography>
-
       <Box
         sx={{
           minHeight: 0,
@@ -111,9 +135,7 @@ export default function Sidebar() {
           flexGrow: 1,
           display: "flex",
           flexDirection: "column",
-          [`& .${listItemButtonClasses.root}`]: {
-            gap: 1.5,
-          },
+          [`& .${listItemButtonClasses.root}`]: { gap: 1.5 },
         }}
       >
         <List
@@ -124,21 +146,22 @@ export default function Sidebar() {
             "--ListItem-radius": (theme) => theme.vars.radius.sm,
           }}
         >
-          {courseContext.courses.map((course) => (
-            <ListItem key={course.id}>
-              <ListItemButton
-                onClick={() => courseContext.setSelectedCourse(course)}
-                selected={course.id === courseContext.selectedCourse.id}
-              >
-                {/* <HomeRoundedIcon /> */}
-                <ListItemContent>
-                  <Typography level="title-sm">
-                    {course.id}: {course.name}
-                  </Typography>
-                </ListItemContent>
-              </ListItemButton>
-            </ListItem>
-          ))}
+          {loading
+            ? renderCourseSkeletons()
+            : courses.map((course) => (
+                <ListItem key={course.id}>
+                  <ListItemButton
+                    onClick={() => setSelectedCourse(course)}
+                    selected={course.id === selectedCourse?.id}
+                  >
+                    <ListItemContent>
+                      <Typography level="title-sm">
+                        {formatCourseId(course.id)}: {course.name}
+                      </Typography>
+                    </ListItemContent>
+                  </ListItemButton>
+                </ListItem>
+              ))}
         </List>
         <List
           size="sm"

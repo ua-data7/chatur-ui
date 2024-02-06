@@ -5,9 +5,10 @@ import Typography from "@mui/joy/Typography";
 import MenuRoundedIcon from "@mui/icons-material/MenuRounded";
 import MoreVertRoundedIcon from "@mui/icons-material/MoreVertRounded";
 import { useCourses } from "@/contexts/courses/CourseContext";
-import { toggleSidebar } from "../../utils";
+import { toggleSidebar } from "../../utils/layoutUtils";
+import { formatCourseId } from "@/utils/courseUtils";
 
-export default function ChatPaneHeader(props) {
+export default function ChatPaneHeader() {
   const { selectedCourse } = useCourses();
   return (
     <Stack
@@ -33,11 +34,13 @@ export default function ChatPaneHeader(props) {
         >
           <MenuRoundedIcon />
         </IconButton>
-        <div>
-          <Typography fontWeight="lg" fontSize="md" component="h2" noWrap>
-            {selectedCourse.id}: {selectedCourse.name}
-          </Typography>
-        </div>
+        {selectedCourse && (
+          <div>
+            <Typography fontWeight="lg" fontSize="md" component="h2" noWrap>
+              {formatCourseId(selectedCourse.id)}: {selectedCourse.name}
+            </Typography>
+          </div>
+        )}
       </Stack>
       <Stack spacing={1} direction="row" alignItems="center">
         <IconButton size="sm" variant="plain" color="neutral">
