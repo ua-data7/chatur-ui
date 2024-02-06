@@ -6,7 +6,7 @@ import ListItemButton from "@mui/joy/ListItemButton";
 import Stack from "@mui/joy/Stack";
 import Typography from "@mui/joy/Typography";
 import CircleIcon from "@mui/icons-material/Circle";
-import { toggleMessagesPane } from "../../utils";
+import { toggleMessagesPane } from "../../utils/layoutUtils";
 
 export default function ChatListItem(props) {
   const { id, sender, messages, selectedChatId, setSelectedChat } = props;
