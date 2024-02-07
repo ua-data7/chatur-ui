@@ -29,13 +29,16 @@ export async function POST(req) {
     });
 
     if (!response.ok) {
-      throw new Error("Something went wrong, please try again.");
+      let error = new Error();
+      error.status = response.status;
+      error.statusText = response.statusText;
+      throw error;
     }
 
     const responseBody = await response.json();
     return NextResponse.json({ output: responseBody.output });
   } catch (error) {
-    return NextResponse.json({ error: error.message, status: 500 });
+    return NextResponse.json({ error: error });
   }
 }
 

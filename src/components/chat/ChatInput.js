@@ -41,7 +41,11 @@ export default function MessageInput() {
         const responseBody = await response.json();
 
         if (responseBody.error) {
-          dispatch(setPendingChatbotMessage(responseBody.error));
+          dispatch(
+            setPendingChatbotMessage(
+              `${responseBody.error.status} Error: ${responseBody.error.statusText}`,
+            ),
+          );
         } else {
           dispatch(setPendingChatbotMessage(responseBody.output));
         }
