@@ -8,7 +8,7 @@ import Typography from "@mui/joy/Typography";
 import CelebrationOutlinedIcon from "@mui/icons-material/CelebrationOutlined";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import InsertDriveFileRoundedIcon from "@mui/icons-material/InsertDriveFileRounded";
-import ChatMessage from "./ChatMessage";
+import FormattedMessage from "./FormattedMessage";
 
 export default function ChatBubble(props) {
   const { message, timestamp, sender, variant, attachment } = props;
@@ -77,7 +77,7 @@ export default function ChatBubble(props) {
                 : "background.body",
             }}
           >
-            <ChatMessage message={message}></ChatMessage>
+            <FormattedMessage message={message}></FormattedMessage>
           </Sheet>
           {(isHovered || isLiked || isCelebrated) && (
             <Stack
