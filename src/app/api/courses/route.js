@@ -1,8 +1,22 @@
 import { NextResponse } from "next/server";
 
 const courses = [
-  { id: "csc_335", name: "Object Oriented Programming" },
-  { id: "rnr_353", name: "Introduction to Wildland Fire" },
+  {
+    id: "cyverse",
+    name: "CyVerse Documentation",
+  },
+  {
+    id: "researchpaper",
+    name: "Research Papers",
+  },
+  {
+    id: "rnr355",
+    name: "RNR 335: Introduction to Wildland Fire",
+  },
+  {
+    id: "techlauncharizona",
+    name: "Tech Launch Arizona",
+  },
 ];
 
 export async function GET(req) {

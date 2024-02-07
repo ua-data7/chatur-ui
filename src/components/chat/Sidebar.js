@@ -155,9 +155,7 @@ export default function Sidebar() {
                     selected={course.id === selectedCourse?.id}
                   >
                     <ListItemContent>
-                      <Typography level="title-sm">
-                        {formatCourseId(course.id)}: {course.name}
-                      </Typography>
+                      <Typography level="title-sm">{course.name}</Typography>
                     </ListItemContent>
                   </ListItemButton>
                 </ListItem>

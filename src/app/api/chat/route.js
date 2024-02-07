@@ -4,9 +4,13 @@ import { headers } from "next/headers";
 export async function POST(req) {
   const requestBody = await req.json();
 
-  const apiUrl = requestBody.endpoint
-    ? joinUrl(process.env.CHAT_API_URL, requestBody.endpoint)
-    : process.env.CHAT_API_URL;
+  let apiUrl;
+
+  if (process.env.NODE_ENV === "development") {
+    apiUrl = process.env.CHAT_API_URL;
+  } else {
+    apiUrl = `http://langclient-${requestBody.courseId}/langserve/invoke`;
+  }
 
   const headersList = headers();
   // apisix openid-connect plugin will pass in a base64 encoded json string of the userinfo
@@ -46,7 +50,3 @@ function parseBase64UserInfo(base64) {
   const binString = atob(base64);
   return JSON.parse(binString);
 }
-
-const joinUrl = (baseUrl, endpoint) => {
-  return `${baseUrl.replace(/\/+$/, "")}/${endpoint.replace(/^\/+/, "")}`;
-};

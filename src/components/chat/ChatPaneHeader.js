@@ -37,7 +37,7 @@ export default function ChatPaneHeader() {
         {selectedCourse && (
           <div>
             <Typography fontWeight="lg" fontSize="md" component="h2" noWrap>
-              {formatCourseId(selectedCourse.id)}: {selectedCourse.name}
+              {selectedCourse.name}
             </Typography>
           </div>
         )}
