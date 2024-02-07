@@ -7,7 +7,7 @@ const courses = [
   },
   {
     id: "researchpaper",
-    name: "Research Papers",
+    name: "Ag Extension Publications",
   },
   {
     id: "rnr355",
