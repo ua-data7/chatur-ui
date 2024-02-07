@@ -27,7 +27,7 @@ export default function MessageInput() {
 
         const params = {
           message: userInput,
-          endpoint: selectedCourse.endpoint ? selectedCourse.endpoint : "",
+          courseId: selectedCourse.id,
         };
 
         const response = await fetch("/api/chat", {
