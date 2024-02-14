@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 const courses = [
   {
     id: "cyverse",
-    name: "CyVerse Documentation",
+    name: "CyVerse",
   },
   {
     id: "researchpaper",
@@ -11,11 +11,15 @@ const courses = [
   },
   {
     id: "rnr355",
-    name: "RNR 335: Introduction to Wildland Fire",
+    name: "RNR 355: Introduction to Wildland Fire",
   },
   {
     id: "techlauncharizona",
     name: "Tech Launch Arizona",
+  },
+  {
+    id: "mkdocs",
+    name: "MkDocs",
   },
 ];
 
