@@ -11,6 +11,7 @@ import ChatPaneHeader from "./ChatPaneHeader";
 
 import { useChats } from "@/contexts/chat/ChatContext";
 import { useCourses } from "@/contexts/courses/CourseContext";
+import PendingMessageBubble from "./PendingMessageBubble";
 
 export default function MessagesPane() {
   const { state } = useChats();
@@ -72,6 +73,14 @@ export default function MessagesPane() {
                   </Stack>
                 );
               })}
+            {/* Show loading message bubble if waiting for response */}
+            {!state.pendingChatbotMessage &&
+              state.pendingCourseId === selectedCourse?.id && (
+                <Stack direction="row" spacing={2} flexDirection={"row"}>
+                  <Avatar src={"images/cactuar-avatar.png"} />
+                  <PendingMessageBubble />
+                </Stack>
+              )}
           </Stack>
         </Box>
       )}
