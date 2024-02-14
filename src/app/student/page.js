@@ -9,6 +9,7 @@ import Sidebar from "@/components/chat/Sidebar";
 import ChatContainer from "@/components/chat/ChatContainer";
 import { CourseProvider } from "@/contexts/courses/CourseContext";
 import { ChatProvider } from "@/contexts/chat/ChatContext";
+import { UserProvider } from "@/contexts/user/UserContext";
 
 export default function Student() {
   return (
@@ -16,7 +17,9 @@ export default function Student() {
       <CssBaseline />
       <CourseProvider>
         <Box sx={{ display: "flex", minHeight: "100dvh" }}>
-          <Sidebar />
+          <UserProvider>
+            <Sidebar />
+          </UserProvider>
           <Box component="main" className="MainContent" sx={{ flex: 1 }}>
             <ChatProvider>
               <ChatContainer />
