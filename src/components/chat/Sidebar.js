@@ -22,6 +22,7 @@ import { closeSidebar } from "../../utils/layoutUtils";
 
 import { useCourses } from "@/contexts/courses/CourseContext";
 import { formatCourseId } from "@/utils/courseUtils";
+import { useUser } from "@/contexts/user/UserContext";
 
 function Toggler(props) {
   const { defaultExpanded = false, renderToggle, children } = props;
@@ -68,6 +69,7 @@ const renderCourseSkeletons = () => {
 export default function Sidebar() {
   const { selectedCourse, setSelectedCourse, courses, loading, error } =
     useCourses();
+  const { user, userLoading, userError } = useUser();
 
   return (
     <Sheet
@@ -95,9 +97,9 @@ export default function Sidebar() {
       <GlobalStyles
         styles={(theme) => ({
           ":root": {
-            "--Sidebar-width": "220px",
+            "--Sidebar-width": "280px",
             [theme.breakpoints.up("lg")]: {
-              "--Sidebar-width": "240px",
+              "--Sidebar-width": "280px",
             },
           },
         })}
@@ -122,8 +124,8 @@ export default function Sidebar() {
         onClick={() => closeSidebar()}
       />
       <Box sx={{ display: "flex", gap: 1, alignItems: "center" }}>
-        <Avatar src="/images/llamacactus.png" />
-        <Typography level="title-lg">Chatur</Typography>
+        {/* <Avatar src="/images/cactuar-avatar.png" /> */}
+        <Typography level="h3">Chatur</Typography>
         <ColorSchemeToggle sx={{ ml: "auto" }} />
       </Box>
       <Divider />
@@ -185,18 +187,41 @@ export default function Sidebar() {
           </ListItem>
         </List>
       </Box>
-      <img src="/images/uarizona-logo.png" alt="Description of the image" />
+      <img
+        src="/images/uarizona-logo.png"
+        alt="Description of the image"
+        width={"175px"}
+      />
       <Divider />
-      <Box sx={{ display: "flex", gap: 1, alignItems: "center" }}>
-        <Avatar variant="outlined" size="sm" src="/images/nirav.jpg" />
-        <Box sx={{ minWidth: 0, flex: 1 }}>
-          <Typography level="title-sm">Nirav M.</Typography>
-          <Typography level="body-xs">nirav@arizona.edu</Typography>
+      {!userLoading && user && (
+        <Box sx={{ display: "flex", gap: 1, alignItems: "center" }}>
+          <Avatar variant="solid" sx={{ backgroundColor: "success.400" }}>
+            {user.given_name?.charAt(0)}
+            {user.family_name?.charAt(0)}
+          </Avatar>
+          <Box sx={{ minWidth: 0, flex: 1, marginLeft: 0.5 }}>
+            <Typography level="title-sm">{user.name}</Typography>
+            <Typography level="body-xs">{user.email}</Typography>
+          </Box>
+          <IconButton size="sm" variant="plain" color="neutral">
+            <LogoutRoundedIcon />
+          </IconButton>
         </Box>
-        <IconButton size="sm" variant="plain" color="neutral">
-          <LogoutRoundedIcon />
-        </IconButton>
-      </Box>
+      )}{" "}
+      {userLoading && (
+        <Stack direction="row" spacing={1}>
+          <Skeleton variant="circular" width={40} height={40} />
+          <Box>
+            <Skeleton animation="wave" variant="text" sx={{ width: 120 }} />
+            <Skeleton
+              animation="wave"
+              variant="text"
+              level="body-xs"
+              sx={{ width: 175 }}
+            />
+          </Box>
+        </Stack>
+      )}
     </Sheet>
   );
 }

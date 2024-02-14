@@ -63,7 +63,7 @@ export default function MessagesPane() {
                     flexDirection={isYou ? "row-reverse" : "row"}
                   >
                     {message.sender !== "You" && (
-                      <Avatar src={"images/llamacactus.png"} />
+                      <Avatar src={"images/cactuar-avatar.png"} />
                     )}
                     <ChatBubble
                       variant={isYou ? "sent" : "received"}
