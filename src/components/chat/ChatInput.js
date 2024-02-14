@@ -112,7 +112,13 @@ export default function MessageInput() {
             </Stack>
           }
           onKeyDown={(event) => {
-            if (event.key === "Enter" && (event.metaKey || event.ctrlKey)) {
+            if (
+              event.key === "Enter" &&
+              !event.shiftKey &&
+              !event.metaKey &&
+              !event.ctrlKey
+            ) {
+              event.preventDefault();
               handleClick();
             }
           }}
