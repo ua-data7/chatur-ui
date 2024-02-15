@@ -19,7 +19,7 @@ const courses = [
   },
   {
     id: "mkdocs",
-    name: "MkDocs",
+    name: "Material for MkDocs",
   },
 ];
 
