@@ -43,7 +43,12 @@ export default function Home() {
               </Button>
             </Link>
           </Stack>
-          <Stack pt={16} direction={"row"} spacing={10}>
+          <Link href="/team">
+            <Button size="lg" variant="plain">
+              Meet the Team
+            </Button>
+          </Link>
+          <Stack pt={10} direction={"row"} spacing={10}>
             <Image
               src="/images/dsi-logo.svg"
               width={300}
