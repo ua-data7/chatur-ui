@@ -33,6 +33,10 @@ const teamMembers = [
       "https://datascience.arizona.edu/sites/default/files/styles/az_card_image/public/2022-05/202108337_franks_hagan.jpg?itok=9qXlDBd3",
   },
   {
+    name: "Ian McEwen",
+    photoUrl: "",
+  },
+  {
     name: "Illyoung Choi",
     photoUrl: "https://ca.slack-edge.com/T065C5R5K-U21A98YM6-g77c3878f082-512",
   },
