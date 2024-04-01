@@ -12,6 +12,7 @@ import Sheet from "@mui/joy/Sheet";
 import Skeleton from "@mui/joy/Skeleton";
 import Stack from "@mui/joy/Stack";
 import Typography from "@mui/joy/Typography";
+import { Link } from "@mui/joy";
 
 import SupportRoundedIcon from "@mui/icons-material/SupportRounded";
 import SettingsRoundedIcon from "@mui/icons-material/SettingsRounded";
@@ -124,8 +125,11 @@ export default function Sidebar() {
         onClick={() => closeSidebar()}
       />
       <Box sx={{ display: "flex", gap: 1, alignItems: "center" }}>
-        {/* <Avatar src="/images/cactuar-avatar.png" /> */}
-        <Typography level="h3">Chatur</Typography>
+        <Link href="/" overlay underline="none">
+          {/* <Avatar src="/images/cactuar-avatar.png" size="sm" /> */}
+          <Typography level="h3">Chatur</Typography>
+        </Link>
+
         <ColorSchemeToggle sx={{ ml: "auto" }} />
       </Box>
       <Divider />
@@ -163,7 +167,7 @@ export default function Sidebar() {
                 </ListItem>
               ))}
         </List>
-        <List
+        {/* <List
           size="sm"
           sx={{
             mt: "auto",
@@ -185,7 +189,7 @@ export default function Sidebar() {
               Account
             </ListItemButton>
           </ListItem>
-        </List>
+        </List> */}
       </Box>
       <img
         src="/images/uarizona-logo.png"
