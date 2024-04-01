@@ -11,6 +11,8 @@ import {
   Typography,
 } from "@mui/joy";
 
+import PublicLayout from "@/components/common/PublicLayout";
+
 const teamMembers = [
   { name: "Ajay Perumbeti", photoUrl: "" },
   { name: "Amy Johnson", photoUrl: "" },
@@ -134,34 +136,38 @@ const teamMembers = [
 
 export default function Team() {
   return (
-    <Box sx={{ width: "80%", margin: "auto" }} paddingY={16}>
-      <Stack spacing={4}>
-        <Typography level="h1" sx={{ textAlign: "center" }}>
-          Meet the Chatur Team{" "}
-        </Typography>
-        <Typography level="title-lg" sx={{ textAlign: "center" }}>
-          Thanks to everyone who participated in the codeathon!
-        </Typography>
-        <Grid container spacing={2}>
-          {teamMembers.map((member, index) => (
-            <Grid item xs={12} sm={6} md={4} key={index}>
-              <Card variant="plain">
-                <CardContent sx={{ alignItems: "center", textAlign: "center" }}>
-                  <Avatar
-                    sx={{ width: "150px", height: "150px", mb: 2 }}
-                    src={
-                      member.photoUrl
-                        ? member.photoUrl
-                        : "/images/cactuar-avatar.png"
-                    }
-                  ></Avatar>
-                  <Typography level="title-lg">{member.name}</Typography>
-                </CardContent>
-              </Card>
-            </Grid>
-          ))}
-        </Grid>
-      </Stack>
-    </Box>
+    <PublicLayout>
+      <Box sx={{ width: "80%", margin: "auto" }} paddingY={4}>
+        <Stack spacing={4}>
+          <Typography level="h1" sx={{ textAlign: "center" }}>
+            Meet the Chatur Team{" "}
+          </Typography>
+          <Typography level="title-lg" sx={{ textAlign: "center" }}>
+            Thanks to everyone who participated in the codeathon!
+          </Typography>
+          <Grid container spacing={2}>
+            {teamMembers.map((member, index) => (
+              <Grid item xs={12} sm={6} md={4} key={index}>
+                <Card variant="plain">
+                  <CardContent
+                    sx={{ alignItems: "center", textAlign: "center" }}
+                  >
+                    <Avatar
+                      sx={{ width: "150px", height: "150px", mb: 2 }}
+                      src={
+                        member.photoUrl
+                          ? member.photoUrl
+                          : "/images/cactuar-avatar.png"
+                      }
+                    ></Avatar>
+                    <Typography level="title-lg">{member.name}</Typography>
+                  </CardContent>
+                </Card>
+              </Grid>
+            ))}
+          </Grid>
+        </Stack>
+      </Box>
+    </PublicLayout>
   );
 }
