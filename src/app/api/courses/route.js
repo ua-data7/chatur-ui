@@ -21,6 +21,10 @@ const courses = [
     id: "mkdocs",
     name: "Material for MkDocs",
   },
+  {
+    id: "chishiki",
+    name: "Chishiki 2024",
+  },
 ];
 
 export async function GET(req) {
