@@ -222,13 +222,14 @@ export default function About() {
           <Typography sx={{ mt: 2 }}>
             Short answer: Hell no! Chatür is based on a very innovative,
             extremely cutting-edge technology called Retrieval Augmented
-            Generation (RAG), where we only &quot;retrieve&quot; the answers to queries,
-            which then get passed on to the LLM, instead of having to train the
-            LLM itself again. In short, we never retrain the base LLM again, we
-            just gently guide it into the right paths every time. Also remember,
-            unlike it being a vestigial or an accidental outcome of a commercial
-            rigmarole, Chatür was created with keeping a sole goal in mind: its
-            free utility for academia and, in turn, the community around us.
+            Generation (RAG), where we only &quot;retrieve&quot; the answers to
+            queries, which then get passed on to the LLM, instead of having to
+            train the LLM itself again. In short, we never retrain the base LLM
+            again, we just gently guide it into the right paths every time. Also
+            remember, unlike it being a vestigial or an accidental outcome of a
+            commercial rigmarole, Chatür was created with keeping a sole goal in
+            mind: its free utility for academia and, in turn, the community
+            around us.
           </Typography>
         </Box>
 
@@ -254,8 +255,8 @@ export default function About() {
             <li>
               The contents of a course offered at the University of Arizona.
               Specifically, in this case, RNR 355: Introduction to Wildland
-              Fire. (And yes his instructor did test Chatür and said, &quot;He is a
-              pretty impressive student&quot;.)
+              Fire. (And yes his instructor did test Chatür and said, &quot;He
+              is a pretty impressive student&quot;.)
             </li>
             <li>
               Any of the publications uploaded in the{" "}
@@ -370,8 +371,9 @@ export default function About() {
             giving me the right answer?
           </Typography>
           <Typography sx={{ mt: 2 }}>
-            You can append your questions with specific commands like &quot;Show me
-            the reference from which you are using to arrive at this answer.&quot;
+            You can append your questions with specific commands like &quot;Show
+            me the reference from which you are using to arrive at this
+            answer.&quot;
           </Typography>
         </Box>
 
@@ -438,12 +440,13 @@ export default function About() {
             confident that this will be an easy integration. Our dream is to
             eventually dish out one Chatür for each course on campus. The
             instructors will first have the ability to upload the documents they
-            want to train him on (that is what the &quot;instructor view&quot; is). Once
-            Chatür is trained, students who are registered in that particular
-            course can start asking questions to have a conversation with Chatür
-            about various things they learn from that course throughout the
-            semester. In short, Chatür is the first baby (step?) in our effort
-            toward an AI-enabled education system for the University of Arizona.
+            want to train him on (that is what the &quot;instructor view&quot;
+            is). Once Chatür is trained, students who are registered in that
+            particular course can start asking questions to have a conversation
+            with Chatür about various things they learn from that course
+            throughout the semester. In short, Chatür is the first baby (step?)
+            in our effort toward an AI-enabled education system for the
+            University of Arizona.
           </Typography>
         </Box>
 
@@ -484,8 +487,8 @@ export default function About() {
             instincts and stubborn resilience we have exhibited across
             centuries. For example, if you look back, you can see that human
             history is profusely sprinkled with iconoclastic technologies
-            constantly threatening to &quot;eliminate&quot; human utility every few
-            decades (starting from the invention of the wheel through
+            constantly threatening to &quot;eliminate&quot; human utility every
+            few decades (starting from the invention of the wheel through
             agriculture to most recently, computers and smartphones). However,
             in all such cases, humans instead of getting bogged down and
             yielding to the threat have constantly adapted to these technologies
@@ -502,11 +505,11 @@ export default function About() {
             In summary, what we are trying to achieve through Chatür and his
             future progeny, is to build the Ship of Theseus for AI technologies
             focusing on its use for our community. To quote what an AI
-            researcher recently said, &quot;AI is not a done deal. We are building
-            the road as we walk it, and we can collectively decide what
-            direction we want to go in, together.&quot; We think those are really
-            wise words, and we hope that we can build an AI that really is good
-            for humans, and not necessarily for machines themselves.
+            researcher recently said, &quot;AI is not a done deal. We are
+            building the road as we walk it, and we can collectively decide what
+            direction we want to go in, together.&quot; We think those are
+            really wise words, and we hope that we can build an AI that really
+            is good for humans, and not necessarily for machines themselves.
           </p>
         </Box>
 
