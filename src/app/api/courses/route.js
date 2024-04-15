@@ -25,6 +25,10 @@ const courses = [
     id: "chishiki",
     name: "Chishiki 2024",
   },
+  {
+    id: "eceantennas",
+    name: "ECE Antennas",
+  },
 ];
 
 export async function GET(req) {
